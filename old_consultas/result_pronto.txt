@@ -1,0 +1,338 @@
+Olá, sou o Professional Dev AI.  
+A seguir mostro um “pacote mínimo viável” para:
+
+1. Definir o schema no MySQL com Flask-SQLAlchemy + Flask-Migrate.  
+2. Consumir /sincronizar os dados da API https://app.proesc.com/api/v1/school_data.  
+
+Você poderá evoluir, mas com esse ponto de partida já é possível versionar migrações, popular o banco e usá-lo na sua aplicação.
+
+-------------------------------------------------
+1. Estrutura de pastas recomendada
+-------------------------------------------------
+proesc_sync/                    # projeto
+│
+├── app/
+│   ├── __init__.py             # factory Flask
+│   ├── models.py               # todos os modelos
+│   ├── ingest.py               # rotina de sincronização
+│   └── config.py               # configs (dev, prod…)
+│
+├── migrations/                 # gerado pelo Flask-Migrate
+│
+├── manage.py                   # comandos CLI
+└── requirements.txt
+
+-------------------------------------------------
+2. Configuração básica
+-------------------------------------------------
+# app/config.py
+import os
+
+class Config:
+    SQLALCHEMY_DATABASE_URI = os.getenv(
+        "DATABASE_URL",
+        "mysql+pymysql://user:password@localhost:3306/proesc"
+    )
+    SQLALCHEMY_TRACK_MODIFICATIONS = False
+    PROESC_TOKEN = os.getenv("PROESC_TOKEN")         # bearer token
+    PROESC_URL   = "https://app.proesc.com/api/v1/school_data"
+
+-------------------------------------------------
+3. Factory + extensões
+-------------------------------------------------
+# app/__init__.py
+from flask import Flask
+from flask_sqlalchemy import SQLAlchemy
+from flask_migrate import Migrate
+from .config import Config
+
+db = SQLAlchemy()
+migrate = Migrate()
+
+def create_app(config_class=Config):
+    app = Flask(__name__)
+    app.config.from_object(config_class)
+
+    db.init_app(app)
+    migrate.init_app(app, db)
+
+    # registra CLI customizado
+    from . import ingest
+    ingest.init_cli(app)
+
+    return app
+
+-------------------------------------------------
+4. Modelos (relacionamentos reduzidos mas completos)
+-------------------------------------------------
+# app/models.py
+from datetime import datetime, timezone
+from . import db
+
+class TimestampMixin:
+    created_at = db.Column(db.DateTime, default=lambda: datetime.now(timezone.utc))
+    updated_at = db.Column(
+        db.DateTime,
+        default=lambda: datetime.now(timezone.utc),
+        onupdate=lambda: datetime.now(timezone.utc)
+    )
+
+class Unit(TimestampMixin, db.Model):
+    __tablename__ = "unit"
+    id   = db.Column(db.Integer, primary_key=True)  # mesmo id da API
+    name = db.Column(db.String(255), nullable=False)
+
+    courses = db.relationship("Course", back_populates="unit", cascade="all, delete-orphan")
+
+class Course(TimestampMixin, db.Model):
+    __tablename__ = "course"
+    id      = db.Column(db.Integer, primary_key=True)
+    name    = db.Column(db.String(255), nullable=False)
+
+    unit_id = db.Column(db.Integer, db.ForeignKey("unit.id", ondelete="CASCADE"))
+    unit    = db.relationship("Unit", back_populates="courses")
+
+    classes = db.relationship("Classe", back_populates="course", cascade="all, delete-orphan")
+
+class Classe(TimestampMixin, db.Model):
+    __tablename__ = "classe"
+    id       = db.Column(db.Integer, primary_key=True)
+    name     = db.Column(db.String(255), nullable=False)
+    shift    = db.Column(db.String(50))
+    order    = db.Column(db.Integer)
+
+    unit_id   = db.Column(db.Integer, db.ForeignKey("unit.id", ondelete="CASCADE"))
+    course_id = db.Column(db.Integer, db.ForeignKey("course.id", ondelete="CASCADE"))
+
+    unit   = db.relationship("Unit")
+    course = db.relationship("Course", back_populates="classes")
+    subjects     = db.relationship("Subject", back_populates="classe", cascade="all, delete-orphan")
+    enrollments  = db.relationship("Enrollment", back_populates="classe", cascade="all, delete-orphan")
+
+class Subject(TimestampMixin, db.Model):
+    __tablename__ = "subject"
+    id = db.Column(db.Integer, primary_key=True)  # surrogate
+    discipline_id       = db.Column(db.Integer)
+    discipline_type_id  = db.Column(db.Integer)
+    discipline          = db.Column(db.String(255))
+
+    classe_id = db.Column(db.Integer, db.ForeignKey("classe.id", ondelete="CASCADE"))
+    classe    = db.relationship("Classe", back_populates="subjects")
+
+class Student(TimestampMixin, db.Model):
+    __tablename__ = "student"
+    id          = db.Column(db.Integer, primary_key=True)  # person_id
+    name        = db.Column(db.String(255))
+    email       = db.Column(db.String(255))
+    photo       = db.Column(db.String(512))
+    gender      = db.Column(db.String(20))
+    birth_date  = db.Column(db.Date)
+
+    enrollments = db.relationship("Enrollment", back_populates="student")
+    responsibles = db.relationship(
+        "Responsible",
+        secondary="student_responsible",
+        back_populates="students",
+    )
+
+class Enrollment(TimestampMixin, db.Model):
+    __tablename__ = "enrollment"
+    id             = db.Column(db.Integer, primary_key=True)  # enroll_id
+    school_year    = db.Column(db.String(10))
+    course_id      = db.Column(db.Integer)
+    class_name     = db.Column(db.String(255))
+    url_report_card = db.Column(db.String(512))
+    r_a            = db.Column(db.String(50))
+    student_phone  = db.Column(db.String(50))
+
+    course_fk_id  = db.Column(db.Integer, db.ForeignKey("course.id"))
+    classe_id     = db.Column(db.Integer, db.ForeignKey("classe.id"))
+    student_id    = db.Column(db.Integer, db.ForeignKey("student.id"))
+
+    classe   = db.relationship("Classe", back_populates="enrollments")
+    student  = db.relationship("Student", back_populates="enrollments")
+
+class Responsible(TimestampMixin, db.Model):
+    __tablename__ = "responsible"
+    id              = db.Column(db.String(50), primary_key=True)
+    name            = db.Column(db.String(255))
+    clean_name      = db.Column(db.String(255))
+    email           = db.Column(db.String(255))
+    phone           = db.Column(db.String(50))
+    identification  = db.Column(db.String(14))
+    responsible_type = db.Column(db.String(50))
+    group_id        = db.Column(db.Integer)
+
+    students = db.relationship(
+        "Student",
+        secondary="student_responsible",
+        back_populates="responsibles",
+    )
+
+# tabela associativa N-para-N estudante ↔ responsável
+student_responsible = db.Table(
+    "student_responsible",
+    db.Column("student_id", db.Integer, db.ForeignKey("student.id", ondelete="CASCADE")),
+    db.Column("responsible_id", db.String(50), db.ForeignKey("responsible.id", ondelete="CASCADE")),
+)
+
+-------------------------------------------------
+5. Rotina de sincronização com a API
+-------------------------------------------------
+# app/ingest.py
+import requests, logging
+from flask.cli import with_appcontext
+import click
+from . import db
+from .models import Unit, Course, Classe, Subject, Student, Enrollment, Responsible
+
+log = logging.getLogger(__name__)
+
+def fetch_remote_data(app):
+    headers = {"Authorization": f"Bearer {app.config['PROESC_TOKEN']}"}
+    resp = requests.get(app.config["PROESC_URL"], headers=headers, timeout=30)
+    resp.raise_for_status()
+    return resp.json()
+
+def upsert(model_cls, data, pk="id"):
+    """Insere ou atualiza baseado na chave primária."""
+    instance = model_cls.query.get(data[pk])
+    if instance:
+        for k, v in data.items():
+            setattr(instance, k, v)
+    else:
+        instance = model_cls(**data)
+        db.session.add(instance)
+    return instance
+
+@with_appcontext
+@click.command("sync_proesc")
+def sync_proesc_command():
+    """Baixa dados da Proesc e atualiza o banco."""
+    from flask import current_app as app
+    payload = fetch_remote_data(app)
+    try:
+        for unit_obj in payload:
+            unit = upsert(Unit, {"id": unit_obj["id"], "name": unit_obj["name"]})
+
+            # CURSOS
+            for course_obj in unit_obj.get("courses", []):
+                course = upsert(
+                    Course,
+                    {"id": course_obj["id"], "name": course_obj["name"], "unit": unit},
+                )
+
+                # TURMAS
+                for class_obj in course_obj.get("classes", []):
+                    classe = upsert(
+                        Classe,
+                        {
+                            "id": class_obj["id"],
+                            "name": class_obj["name"],
+                            "shift": class_obj["shift"],
+                            "order": class_obj["order"],
+                            "unit": unit,
+                            "course": course,
+                        },
+                    )
+
+                    # DISCIPLINAS
+                    for subj in class_obj.get("subjects", []):
+                        upsert(
+                            Subject,
+                            {
+                                "discipline_id": subj["discipline_id"],
+                                "discipline_type_id": subj["discipline_type_id"],
+                                "discipline": subj["discipline"],
+                                "classe": classe,
+                            },
+                            pk="discipline_id",
+                        )
+
+                # MATRÍCULAS
+                for enr in course_obj.get("enrollment", []):
+                    student = upsert(
+                        Student,
+                        {
+                            "id": enr["person_id"],
+                            "name": enr["student"],
+                            "email": enr["email"],
+                            "photo": enr["photo"],
+                            "gender": enr["gender"],
+                            "birth_date": enr["birth_date"],
+                        },
+                    )
+
+                    enrollment = upsert(
+                        Enrollment,
+                        {
+                            "id": enr["enroll_id"],
+                            "school_year": enr["school_year"],
+                            "course_id": enr["course_id"],
+                            "class_name": enr["classe"],
+                            "url_report_card": enr["url_report_card"],
+                            "r_a": enr["r_a"],
+                            "student_phone": enr["student_phone"],
+                            "student": student,
+                            "classe_id": enr["course_id"],  # ajuste se necessário
+                        },
+                    )
+
+                    # RESPONSÁVEIS
+                    for resp in enr.get("responsible", []):
+                        responsible = upsert(
+                            Responsible,
+                            {
+                                "id": resp["id"],
+                                "name": resp["name"],
+                                "clean_name": resp["clean_name"],
+                                "email": resp["email"],
+                                "phone": resp["phone"],
+                                "identification": resp["identification"],
+                                "responsible_type": resp["responsible_type"],
+                                "group_id": resp["group_id"],
+                            },
+                            pk="id",
+                        )
+                        if responsible not in student.responsibles:
+                            student.responsibles.append(responsible)
+
+        db.session.commit()
+        log.info("Sincronização concluída com sucesso.")
+    except Exception:
+        db.session.rollback()
+        log.exception("Erro na sincronização")
+        raise
+
+def init_cli(app):
+    app.cli.add_command(sync_proesc_command)
+
+-------------------------------------------------
+6. Gerando migrações e executando
+-------------------------------------------------
+$ export FLASK_APP=proesc_sync.app:create_app
+$ flask db init          # apenas no primeiro uso
+$ flask db migrate -m "initial schema"
+$ flask db upgrade
+
+Depois:
+$ flask sync_proesc      # consome a API e persiste
+
+-------------------------------------------------
+7. Dependências (requirements.txt)
+-------------------------------------------------
+Flask
+Flask-SQLAlchemy
+Flask-Migrate
+PyMySQL
+requests
+python-dotenv            # opcional para .env
+
+-------------------------------------------------
+Próximos passos / ajustes finos
+1. Mapear corretamente foreign keys course_id/classe_id conforme regras de negócio.  
+2. Tratar paginação ou filtros na API, se existirem.  
+3. Implementar versionamento/soft-delete se necessário.  
+4. Criar testes unitários (pytest + banco SQLite in-memory).  
+
+Você precisa de ajuda para integrar esse módulo a algum serviço REST ou deseja refinar algum modelo específico?

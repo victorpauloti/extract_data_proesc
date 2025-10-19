@@ -1,0 +1,95 @@
+Isso normalmente acontece quando:
+
+• O decorator @click.command não foi aplicado (ou foi removido pela ordem dos decorators).
+
+• Você passou o retorno da função (parênteses) para app.cli.add_command, em vez do próprio objeto comando.
+
+• O módulo ingest.py não foi importado / registrado durante a criação do app.
+
+Abaixo seguem os pontos que você deve conferir.
+
+──────────────────────────────────────────────
+
+ingest.py – ordem e registro dos decorators ────────────────────────────────────────────── 
+import click 
+from flask.cli import with_appcontext 
+from . import db
+
+… demais imports …
+
+@click.command("sync_proesc")   # DEVE ser o mais externo
+@with_appcontext                # depois o with_appcontext
+def sync_proesc() -> None:      # <<< nome simples
+"""Baixa dados da Proesc e grava no banco."""
+# lógica aqui
+
+──────────────────────────────────────────────
+
+Não invoque a função ao registrar ──────────────────────────────────────────────
+ingest.py (mesmo arquivo)
+def init_cli(app):
+# CERTO – passa o objeto comando
+app.cli.add_command(sync_proesc)
+
+# ERRADO – devolve None ou a própria função
+# app.cli.add_command(sync_proesc())    # ← note os parênteses – NÃO use
+
+──────────────────────────────────────────────
+
+Garanta que init_cli seja chamado na factory ──────────────────────────────────────────────
+app/init.py
+from flask import Flask
+from flask_sqlalchemy import SQLAlchemy
+from flask_migrate  import Migrate
+
+db = SQLAlchemy()
+migrate = Migrate()
+
+def create_app(config_class=None):
+app = Flask(name)
+# … configs …
+
+db.init_app(app)
+migrate.init_app(app, db)
+
+# IMPORTA aqui para evitar import circular
+from . import ingest
+ingest.init_cli(app)        # ← registra o comando
+
+return app
+
+──────────────────────────────────────────────
+
+Verifique se o comando está disponível ────────────────────────────────────────────── 
+$ flask --help Usage: flask [OPTIONS] COMMAND [ARGS]... Commands: db sync_proesc ← ele deve aparecer aqui
+Se não aparece, ingest.init_cli não foi executado.
+
+Se aparece mas ainda gera erro, volte aos itens 1 e 2.
+
+──────────────────────────────────────────────
+
+Conferir rapidamente no shell Python ──────────────────────────────────────────────
+
+from app import create_app
+app = create_app()
+app.cli.commands["sync_proesc"]
+<click.core.Command 'sync_proesc'>    # deve ser um Command, não <function …>
+
+──────────────────────────────────────────────
+
+Checklist final
+
+Decorator @click.command presente e mais externo.
+
+Registro do comando SEM parênteses.
+
+ingest.init_cli(app) chamado na factory.
+
+FLASK_APP configurado para “app:create_app”.
+
+Projeto sendo executado a partir da pasta onde o pacote “app” existe.
+
+Ajustando esses pontos o comando deve funcionar:
+
+$ flask sync_proesc
+Sincronização concluída com sucesso.

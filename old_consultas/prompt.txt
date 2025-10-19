@@ -1,0 +1,261 @@
+==== prompt para novas base =============
+
+Preciso Realizar consulta dados cadastrais na api https://app.proesc.com/api/v1/school_data .
+
+Nessa API eu tenho o seguinte response body:
+
+'''
+Response body
+array of objects
+    object
+    status
+    string
+    Status da requisição
+
+units
+object
+
+units object
+id
+integer
+Id da unidade
+
+name
+string
+Nome da unidade
+
+created_at
+string
+Data de criação da unidade
+
+updated_at
+string
+Data de atualização da unidade
+
+courses
+array of objects
+object
+id
+integer
+Id do curso
+
+name
+string
+Nome do curso
+
+created_at
+string
+Data de criação do curso
+
+updated_at
+string
+Data de atualização do curso
+
+classes
+array of objects
+object
+id
+integer
+Id da turma
+
+name
+string
+Nome da turma
+
+shift
+string
+Turno da turma
+
+unit_id
+integer
+Id da unidade da turma
+
+course_id
+integer
+Id do curso da turma
+
+order
+integer
+Ordem
+
+subjects
+array of objects
+object
+discipline_id
+integer
+Id da disciplina
+
+discipline_type_id
+integer
+Id do tipo de disciplina
+
+discipline
+string
+Nome da disciplina
+
+classe_id
+integer
+Id da turma dessa disciplina
+
+created_at
+string
+Data de criação da turma
+
+updated_at
+string
+Data de atualização da turma
+
+enrollment
+array of objects
+object
+school_year
+string
+Ano letivo informado
+
+course
+string
+Nome do curso
+
+course_id
+integer
+Id do curso da turma
+
+classe
+string
+Nome da turma
+
+person_id
+integer
+Id do aluno
+
+enroll_id
+integer
+Id da matrícula do aluno
+
+group_id
+integer
+Id do grupo principal do cadastro do aluno
+
+student
+string
+Nome do aluno matriculado
+
+photo
+string
+Link para foto inserida em cadastro do aluno
+
+gender
+string
+Gênero do aluno
+
+birth_date
+string
+Data de nascimento do aluno
+
+url_report_card
+string
+Url de acesso ao boletim do aluno
+
+email
+string
+Email do aluno
+
+student_phone
+string
+Telefone do aluno
+
+r_a
+string
+Registro único do aluno
+
+created_at
+string
+Data de criação da matrícula
+
+updated_at
+string
+Data de atualização do registro da matrícula
+
+responsible
+array of objects
+object
+id
+string
+Id do responsável
+
+group_id
+integer
+Id do grupo principal do cadastro do responsável
+
+name
+string
+Nome do responsável
+
+clean_name
+string
+Nome do responsável sem caracteres especiais, como acentos ou espaços duplicados
+
+email
+string
+Email do responsável
+
+phone
+string
+Telefone do responsável
+
+identification
+string
+CPF do responsável
+
+created_at
+string
+Data de criação do registro do responsável
+
+updated_at
+string
+Data de atualização do registro do responsável
+
+responsible_type
+string
+enum
+Tipo de responsável
+
+responsible_financial mother father responsible_pedagogical responsible responsible_pedagogical_2
+
+newsletter_reviews_url
+string
+Url de acesso ao boletim detalhado do aluno. Esse modelo de boletim irá exibir as notas dos instrumentos avaliativos, além das médias do período e média anual
+'''
+
+Gostaria de represenar essa api no meu banco Mysql.
+Quero utilziar biliotecas python com flask para ter o beneficio de um migrate em flask.
+Utilizando as bibliotecas flask_migrate, flask_sqlalchemy, e construi algo semelhate ao modelo abaixo :
+
+'''
+class User(db.Model):
+    __tablename__ = "user"
+
+    id           = db.Column(db.Integer, primary_key=True, autoincrement=True)
+    person_cpf   = db.Column(db.String(11), unique=True, nullable=False)
+    person_id    = db.Column(db.Integer)
+    person_email = db.Column(db.String(120), unique=True, nullable=False)
+    person_name  = db.Column(db.String(255), nullable=False)
+    password     = db.Column(db.String(255), nullable=False)
+    date_created = db.Column(
+        db.DateTime(6),
+        default=lambda: datetime.now(timezone.utc),
+        onupdate=lambda: datetime.now(timezone.utc),
+        nullable=True
+    )
+    active       = db.Column(db.Boolean, default=True, nullable=False)
+    # One-to-many: um usuário → várias invoices
+    invoices = db.relationship(
+        "Invoice",
+        back_populates="user",
+        cascade="all, delete-orphan",   # comport. opcional
+        passive_deletes=True
+    )
+    '''
+
+    O que voce sugere de model e codigo python para esse tratamento de dados desde o consumo da API ate a entrega no banco de dados Mysql.
+    Agradeco ajuda.

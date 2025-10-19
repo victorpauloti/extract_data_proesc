@@ -1,0 +1,201 @@
+Response body
+array of objects
+object
+current_page
+integer
+Página de resultados atual
+
+first_page_url
+string
+Url para exibição de primeira página de resultados
+
+from
+integer
+last_page
+integer
+Número de última página de resultados
+
+last_page_url
+string
+Url para exibição de última página de resultados
+
+links
+array of objects
+object
+url
+string
+label
+string
+active
+boolean
+next_page_url
+string
+Url para exibição de próxima página de resultados
+
+path
+string
+per_page
+integer
+Quantidade de registros por página
+
+prev_page_url
+string
+to
+integer
+total
+integer
+Total de páginas de resultados
+
+data
+array of objects
+object
+invoice_id
+integer
+Identificador único da parcela
+
+entidade_id
+integer
+Identificador único da entidade
+
+description
+string
+Descrição da parcela
+
+order
+integer
+Ordem da parcela
+
+invoice_group_id
+integer
+Identificador único do débito
+
+invoice_group_type_id
+integer
+Identificador único do tipo de débito
+
+invoice_group_type_name
+integer
+Nome do tipo de débito
+
+invoice_group_total
+integer
+Quantidade total de parcelas vinculadas ao débito
+
+status
+string
+enum
+Status da parcela
+
+VENCIDO PAGA EM ABERTO
+
+due_date
+string
+Data de vencimento
+
+original_invoice_amount
+string
+Valor original da parcela
+
+discounts
+object
+
+discounts object
+fixed_discount_amount
+string
+Valor de desconto fixo
+
+early_payment_discount
+object
+
+early_payment_discount object
+early_payment_discount_amount
+string
+Valor de desconto adimplência
+
+early_payment_discount_percentage
+string
+Percentual de desconto adimplência
+
+specific_days_discount1
+object
+
+specific_days_discount1 object
+discount_amount
+string
+Valor de desconto personalizado
+
+discount_percentage
+string
+Porcentagem de desconto personalizado
+
+deadline
+integer
+Quantidade de dias antes do vencimento que desconto será válido
+
+specific_days_discount2
+object
+
+specific_days_discount2 object
+discount_amount
+string
+Valor de segundo desconto personalizado
+
+discount_percentage
+string
+Porcentagem de desconto personalizado
+
+deadline
+integer
+Quantidade de dias antes do vencimento que desconto será válido
+
+late_payment_fees
+object
+
+late_payment_fees object
+fine
+string
+Valor de multa
+
+interest
+string
+Valor de juros
+
+updated_invoice_amount
+string
+Valor final da parcela
+
+paid_invoice_amount
+string
+Valor pago da parcela
+
+payment_date
+string
+Data de pagamento
+
+bank_slip
+object
+
+bank_slip object
+external_gateway_url
+string
+Link externo para fatura
+
+external_gateway_id
+string
+Identificador único de fatura
+
+barcode_line
+string
+Linha digitável do boleto
+
+pix
+object
+
+pix object
+pix_qrcode
+string
+Pix qrcode
+
+pix_text
+string
+Pix texto
