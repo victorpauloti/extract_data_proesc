@@ -122,7 +122,8 @@ class DadosPerson:
     def insert_data(self, data):
         engine = create_engine(os.getenv('DEV_DATABASE_URI'))
         # Inserir os dados na tabela 'user'
-        return data.to_sql(name='user', con=engine, if_exists='replace', index=False)
+        data.to_sql(name='user', con=engine, if_exists='replace', index=False)
 
+        return 
 
 
