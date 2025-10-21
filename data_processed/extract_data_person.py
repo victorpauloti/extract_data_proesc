@@ -1,5 +1,4 @@
 from dados_person import DadosPerson
-from dados_finan import DadosFinanceiro
 import time
 import logging
 logging.basicConfig(filename='time_person.log',level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')

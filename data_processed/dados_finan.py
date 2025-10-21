@@ -40,10 +40,10 @@ class DadosFinanceiro:
                     if  response.status_code == 200:
                         data = response.json()
                         data_pag_ultima = data["last_page"]
-                        print(f"Ano {ano} | Página {page_num}  DE {data_pag_ultima}")
+                        logging.info(f"Ano {ano} | Página {page_num}  DE {data_pag_ultima}")
                         invoice_list.append(response.json())
                 except:
-                    invoice_list.append(None)
+                    logging.error(invoice_list.append(None))
 
         return invoice_list
     
@@ -121,6 +121,5 @@ class DadosFinanceiro:
     def insert_data_finan(self):
         data_frame_finan = self.create_df_finan()
         engine = create_engine(os.getenv('DEV_DATABASE_URI'))
-        # Inserir os dados na tabela 'user'
         data_frame_finan.to_sql(name='invoices', con=engine, if_exists='replace', index=False)
-        return print(f"Dados inseridos com sucesso na tabela 'user', {len(data_frame_finan)} registros.")
+        return logging.info(f"Dados inseridos com sucesso na tabela 'user', {len(data_frame_finan)} registros financeiros.")
