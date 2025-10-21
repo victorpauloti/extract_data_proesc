@@ -1,0 +1,1536 @@
+{
+    "current_page": 1,
+    "data": [
+        {
+            "invoice_id": 31854062,
+            "person_id": 5187836,
+            "pessoa": {
+                "id": 5187836,
+                "nome": "WESLLIANE DA SILVA NUNES",
+                "cadastro_nacional": "01734138467",
+                "email_comunicacao": "w.ana15@hotmail.com",
+                "endereco": {
+                    "id": 4603455,
+                    "pessoa_id": 5187836,
+                    "cep": "59072230",
+                    "nome": "RUA S\u00c3O NICOLAU",
+                    "numero": "386",
+                    "complemento": null,
+                    "bairro": "FELIPE CAMAR\u00c3O",
+                    "cidade": "NATAL",
+                    "estado": "RN"
+                }
+            },
+            "matricula": null,
+            "description": "MENSALIDADES NA TURMA ABA AO TEA - TURMA1-S/2024 - (20/20)",
+            "order": 20,
+            "invoice_group_id": 5769136,
+            "invoice_group_type_id": 35272,
+            "invoice_group_type_name": "MENSALIDADE",
+            "invoice_group_type_description": null,
+            "invoice_group_total": 20,
+            "status": "PAGA",
+            "due_date": "2025-10-05",
+            "original_invoice_amount": "797,00",
+            "discounts": {
+                "fixed_discount_amount": "0,00",
+                "early_payment_discount": {
+                    "early_payment_discount_amount": "797,00",
+                    "early_payment_discount_percentage": "100"
+                },
+                "specific_days_discount1": {
+                    "discount_amount": "0,00",
+                    "discount_percentage": "0",
+                    "deadline": 0
+                },
+                "specific_days_discount2": {
+                    "discount_amount": "0,00",
+                    "discount_percentage": "0",
+                    "deadline": 0
+                }
+            },
+            "late_payment_fees": {
+                "fine": "1",
+                "interest": "0.033"
+            },
+            "updated_invoice_amount": "797,00",
+            "paid_invoice_amount": "0,00",
+            "payment_date": "2024-02-01",
+            "bank_slip": {
+                "external_gateway_url": "no link available",
+                "external_gateway_id": null,
+                "barcode_line": null,
+                "pix": {
+                    "pix_qrcode": null,
+                    "pix_text": null
+                }
+            }
+        },
+        {
+            "invoice_id": 32099179,
+            "person_id": 5226473,
+            "pessoa": {
+                "id": 5226473,
+                "nome": "KATY ANNE RODRIGUES DE LIMA",
+                "cadastro_nacional": "10189018410",
+                "email_comunicacao": "katy.arl@hotmail.com",
+                "endereco": {
+                    "id": 4632215,
+                    "pessoa_id": 5226473,
+                    "cep": "56330260",
+                    "nome": "RUA VITAL BRASIL",
+                    "numero": "555",
+                    "complemento": null,
+                    "bairro": "MARIA AUXILIADORA",
+                    "cidade": "PETROLINA",
+                    "estado": "PE"
+                }
+            },
+            "matricula": {
+                "id": 4562748,
+                "turma_id": 298756,
+                "origem_id": null,
+                "ativa": true,
+                "situacao_atual_id": 1,
+                "data_matricula": "2024-02-15",
+                "data_saida": null,
+                "matricula_tipo_id": 1
+            },
+            "description": "MENSALIDADES NA TURMA ABA AO TEA - TURMA2 - S/2024 - (20/20)",
+            "order": 20,
+            "invoice_group_id": 5802219,
+            "invoice_group_type_id": 35272,
+            "invoice_group_type_name": "MENSALIDADE",
+            "invoice_group_type_description": null,
+            "invoice_group_total": 20,
+            "status": "PAGA",
+            "due_date": "2025-10-06",
+            "original_invoice_amount": "797,00",
+            "discounts": {
+                "fixed_discount_amount": "0,00",
+                "early_payment_discount": {
+                    "early_payment_discount_amount": "250,00",
+                    "early_payment_discount_percentage": "31.36"
+                },
+                "specific_days_discount1": {
+                    "discount_amount": "0,00",
+                    "discount_percentage": "0",
+                    "deadline": 0
+                },
+                "specific_days_discount2": {
+                    "discount_amount": "0,00",
+                    "discount_percentage": "0",
+                    "deadline": 0
+                }
+            },
+            "late_payment_fees": {
+                "fine": "1",
+                "interest": "0.033"
+            },
+            "updated_invoice_amount": "797,00",
+            "paid_invoice_amount": "547,00",
+            "payment_date": "2025-10-06",
+            "bank_slip": {
+                "external_gateway_url": "https://app.proesc.com/checkout/733101E5882141DEBE4D01B774824DDA?utm_source=proesc&utm_medium=sistema",
+                "external_gateway_id": "733101E5882141DEBE4D01B774824DDA",
+                "barcode_line": "40192024099200000000710003841045112260000079700",
+                "pix": {
+                    "pix_qrcode": "https://faturas.iugu.com/qr_code/733101e5-8821-41de-be4d-01b774824dda-7cc2",
+                    "pix_text": "00020101021226840014br.gov.bcb.pix2562qr.iugu.com/public/payload/v2/733101E5882141DEBE4D01B774824DDA5204000053039865406797.005802BR5925GAMA EDUCACIONAL E PESQUI6006MACEIO62070503***6304B263"
+                }
+            }
+        },
+        {
+            "invoice_id": 32099457,
+            "person_id": 5226498,
+            "pessoa": {
+                "id": 5226498,
+                "nome": "DANILO CESAR COUTO",
+                "cadastro_nacional": "09416795607",
+                "email_comunicacao": "danilocvt@yahoo.com.br",
+                "endereco": {
+                    "id": 4632242,
+                    "pessoa_id": 5226498,
+                    "cep": "35572234",
+                    "nome": "RUA SALINAS",
+                    "numero": "55",
+                    "complemento": null,
+                    "bairro": "ALTO DOS PINHEIROS",
+                    "cidade": "FORMIGA",
+                    "estado": "MG"
+                }
+            },
+            "matricula": {
+                "id": 4563007,
+                "turma_id": 298756,
+                "origem_id": null,
+                "ativa": true,
+                "situacao_atual_id": 1,
+                "data_matricula": "2024-02-15",
+                "data_saida": null,
+                "matricula_tipo_id": 1
+            },
+            "description": "MENSALIDADES NA TURMA ABA AO TEA - TURMA2 - S/2024 - (20/20)",
+            "order": 20,
+            "invoice_group_id": 5802263,
+            "invoice_group_type_id": 35272,
+            "invoice_group_type_name": "MENSALIDADE",
+            "invoice_group_type_description": null,
+            "invoice_group_total": 20,
+            "status": "PAGA",
+            "due_date": "2025-10-06",
+            "original_invoice_amount": "797,00",
+            "discounts": {
+                "fixed_discount_amount": "0,00",
+                "early_payment_discount": {
+                    "early_payment_discount_amount": "250,00",
+                    "early_payment_discount_percentage": "31.36"
+                },
+                "specific_days_discount1": {
+                    "discount_amount": "0,00",
+                    "discount_percentage": "0",
+                    "deadline": 0
+                },
+                "specific_days_discount2": {
+                    "discount_amount": "0,00",
+                    "discount_percentage": "0",
+                    "deadline": 0
+                }
+            },
+            "late_payment_fees": {
+                "fine": "1",
+                "interest": "0.033"
+            },
+            "updated_invoice_amount": "797,00",
+            "paid_invoice_amount": "547,00",
+            "payment_date": "2025-10-02",
+            "bank_slip": {
+                "external_gateway_url": "https://app.proesc.com/checkout/D6BBF5567614492C8732B1EAD2575FAF?utm_source=proesc&utm_medium=sistema",
+                "external_gateway_id": "D6BBF5567614492C8732B1EAD2575FAF",
+                "barcode_line": "40192024099200000000710003347647112260000079700",
+                "pix": {
+                    "pix_qrcode": "https://faturas.iugu.com/qr_code/d6bbf556-7614-492c-8732-b1ead2575faf-8928",
+                    "pix_text": "00020101021226840014br.gov.bcb.pix2562qr.iugu.com/public/payload/v2/D6BBF5567614492C8732B1EAD2575FAF5204000053039865406797.005802BR5925GAMA EDUCACIONAL E PESQUI6006MACEIO62070503***6304AA81"
+                }
+            }
+        },
+        {
+            "invoice_id": 32099977,
+            "person_id": 5226542,
+            "pessoa": {
+                "id": 5226542,
+                "nome": "ELAINE CRISTINA ZARPELON DE SOUZA",
+                "cadastro_nacional": "02443675904",
+                "email_comunicacao": "elaineczs1978@gmail.com",
+                "endereco": {
+                    "id": 4632284,
+                    "pessoa_id": 5226542,
+                    "cep": "80010180",
+                    "nome": "RUA BAR\u00c3O DO RIO BRANCO",
+                    "numero": "56",
+                    "complemento": null,
+                    "bairro": "CENTRO",
+                    "cidade": "CURITIBA",
+                    "estado": "PR"
+                }
+            },
+            "matricula": {
+                "id": 4563481,
+                "turma_id": 298756,
+                "origem_id": null,
+                "ativa": true,
+                "situacao_atual_id": 1,
+                "data_matricula": "2024-02-15",
+                "data_saida": null,
+                "matricula_tipo_id": 1
+            },
+            "description": "MENSALIDADES NA TURMA ABA AO TEA - TURMA2 - S/2024 - (20/20)",
+            "order": 20,
+            "invoice_group_id": 5802319,
+            "invoice_group_type_id": 35272,
+            "invoice_group_type_name": "MENSALIDADE",
+            "invoice_group_type_description": null,
+            "invoice_group_total": 20,
+            "status": "PAGA",
+            "due_date": "2025-10-06",
+            "original_invoice_amount": "797,00",
+            "discounts": {
+                "fixed_discount_amount": "0,00",
+                "early_payment_discount": {
+                    "early_payment_discount_amount": "250,00",
+                    "early_payment_discount_percentage": "31.36"
+                },
+                "specific_days_discount1": {
+                    "discount_amount": "0,00",
+                    "discount_percentage": "0",
+                    "deadline": 0
+                },
+                "specific_days_discount2": {
+                    "discount_amount": "0,00",
+                    "discount_percentage": "0",
+                    "deadline": 0
+                }
+            },
+            "late_payment_fees": {
+                "fine": "1",
+                "interest": "0.033"
+            },
+            "updated_invoice_amount": "797,00",
+            "paid_invoice_amount": "547,00",
+            "payment_date": "2025-09-08",
+            "bank_slip": {
+                "external_gateway_url": "https://app.proesc.com/checkout/A99997B9BE0C47EEB7D6CD4F03EAB26B?utm_source=proesc&utm_medium=sistema",
+                "external_gateway_id": "A99997B9BE0C47EEB7D6CD4F03EAB26B",
+                "barcode_line": "40192024099200000000710003412367112260000079700",
+                "pix": {
+                    "pix_qrcode": "https://faturas.iugu.com/qr_code/a99997b9-be0c-47ee-b7d6-cd4f03eab26b-58fe",
+                    "pix_text": "00020101021226840014br.gov.bcb.pix2562qr.iugu.com/public/payload/v2/A99997B9BE0C47EEB7D6CD4F03EAB26B5204000053039865406797.005802BR5925GAMA EDUCACIONAL E PESQUI6006MACEIO62070503***63048137"
+                }
+            }
+        },
+        {
+            "invoice_id": 32100608,
+            "person_id": 5226603,
+            "pessoa": {
+                "id": 5226603,
+                "nome": "MARILIA DOS SANTOS ANDRADE",
+                "cadastro_nacional": "06253942590",
+                "email_comunicacao": "mariliasandradeaba@hotmail.com",
+                "endereco": {
+                    "id": 4632344,
+                    "pessoa_id": 5226603,
+                    "cep": "40421580",
+                    "nome": "RUA PORTO DOS TAINHEIROS",
+                    "numero": "30",
+                    "complemento": null,
+                    "bairro": "RIBEIRA",
+                    "cidade": "SALVADOR",
+                    "estado": "BA"
+                }
+            },
+            "matricula": {
+                "id": 4564081,
+                "turma_id": 298756,
+                "origem_id": null,
+                "ativa": true,
+                "situacao_atual_id": 1,
+                "data_matricula": "2024-02-15",
+                "data_saida": null,
+                "matricula_tipo_id": 1
+            },
+            "description": "MENSALIDADES NA TURMA ABA AO TEA - TURMA2 - S/2024 - (20/20)",
+            "order": 20,
+            "invoice_group_id": 5802405,
+            "invoice_group_type_id": 35272,
+            "invoice_group_type_name": "MENSALIDADE",
+            "invoice_group_type_description": null,
+            "invoice_group_total": 20,
+            "status": "PAGA",
+            "due_date": "2025-10-06",
+            "original_invoice_amount": "797,00",
+            "discounts": {
+                "fixed_discount_amount": "0,00",
+                "early_payment_discount": {
+                    "early_payment_discount_amount": "250,00",
+                    "early_payment_discount_percentage": "31.36"
+                },
+                "specific_days_discount1": {
+                    "discount_amount": "0,00",
+                    "discount_percentage": "0",
+                    "deadline": 0
+                },
+                "specific_days_discount2": {
+                    "discount_amount": "0,00",
+                    "discount_percentage": "0",
+                    "deadline": 0
+                }
+            },
+            "late_payment_fees": {
+                "fine": "1",
+                "interest": "0.033"
+            },
+            "updated_invoice_amount": "797,00",
+            "paid_invoice_amount": "547,00",
+            "payment_date": "2025-10-03",
+            "bank_slip": {
+                "external_gateway_url": "https://app.proesc.com/checkout/B95CD7567FF4419D9C7F3DC3D57A7A71?utm_source=proesc&utm_medium=sistema",
+                "external_gateway_id": "B95CD7567FF4419D9C7F3DC3D57A7A71",
+                "barcode_line": "40192024099200000000710003907960312260000079700",
+                "pix": {
+                    "pix_qrcode": "https://faturas.iugu.com/qr_code/b95cd756-7ff4-419d-9c7f-3dc3d57a7a71-e171",
+                    "pix_text": "00020101021226840014br.gov.bcb.pix2562qr.iugu.com/public/payload/v2/B95CD7567FF4419D9C7F3DC3D57A7A715204000053039865406797.005802BR5925GAMA EDUCACIONAL E PESQUI6006MACEIO62070503***63042CB6"
+                }
+            }
+        },
+        {
+            "invoice_id": 32120268,
+            "person_id": 5228393,
+            "pessoa": {
+                "id": 5228393,
+                "nome": "ANDR\u00c9IA CRISTINA SANTOS MENEGASSO CEDANO",
+                "cadastro_nacional": "33723041876",
+                "email_comunicacao": "deiamenegasso@hotmail.com",
+                "endereco": {
+                    "id": 4633878,
+                    "pessoa_id": 5228393,
+                    "cep": "15775000",
+                    "nome": "RUA PERIMETRAL OESTE",
+                    "numero": "437",
+                    "complemento": null,
+                    "bairro": "CENTRO",
+                    "cidade": "SANTA F\u00c9 DO SUL",
+                    "estado": "SP"
+                }
+            },
+            "matricula": {
+                "id": 4576036,
+                "turma_id": 298756,
+                "origem_id": null,
+                "ativa": true,
+                "situacao_atual_id": 1,
+                "data_matricula": "2024-02-16",
+                "data_saida": null,
+                "matricula_tipo_id": 1
+            },
+            "description": "MENSALIDADES NA TURMA ABA AO TEA - TURMA2 - S/2024 - (20/20)",
+            "order": 20,
+            "invoice_group_id": 5805150,
+            "invoice_group_type_id": 35272,
+            "invoice_group_type_name": "MENSALIDADE",
+            "invoice_group_type_description": null,
+            "invoice_group_total": 20,
+            "status": "PAGA",
+            "due_date": "2025-10-06",
+            "original_invoice_amount": "797,00",
+            "discounts": {
+                "fixed_discount_amount": "0,00",
+                "early_payment_discount": {
+                    "early_payment_discount_amount": "250,00",
+                    "early_payment_discount_percentage": "31.36"
+                },
+                "specific_days_discount1": {
+                    "discount_amount": "0,00",
+                    "discount_percentage": "0",
+                    "deadline": 0
+                },
+                "specific_days_discount2": {
+                    "discount_amount": "0,00",
+                    "discount_percentage": "0",
+                    "deadline": 0
+                }
+            },
+            "late_payment_fees": {
+                "fine": "1",
+                "interest": "0.033"
+            },
+            "updated_invoice_amount": "797,00",
+            "paid_invoice_amount": "547,00",
+            "payment_date": "2025-10-06",
+            "bank_slip": {
+                "external_gateway_url": "https://app.proesc.com/checkout/3D1B1006F86044EAA33E9A0F4B375031?utm_source=proesc&utm_medium=sistema",
+                "external_gateway_id": "3D1B1006F86044EAA33E9A0F4B375031",
+                "barcode_line": "40192024099200000000710003019337212260000079700",
+                "pix": {
+                    "pix_qrcode": "https://faturas.iugu.com/qr_code/3d1b1006-f860-44ea-a33e-9a0f4b375031-3e79",
+                    "pix_text": "00020101021226840014br.gov.bcb.pix2562qr.iugu.com/public/payload/v2/3D1B1006F86044EAA33E9A0F4B3750315204000053039865406797.005802BR5925GAMA EDUCACIONAL E PESQUI6006MACEIO62070503***6304A45E"
+                }
+            }
+        },
+        {
+            "invoice_id": 32138282,
+            "person_id": 5230136,
+            "pessoa": {
+                "id": 5230136,
+                "nome": "LARISSA PACHECO GARCIA",
+                "cadastro_nacional": "01400609011",
+                "email_comunicacao": "larissapgarcia.md@gmail.com",
+                "endereco": {
+                    "id": 4635494,
+                    "pessoa_id": 5230136,
+                    "cep": "90450010",
+                    "nome": "RUA PEDRO CHAVES BARCELOS",
+                    "numero": "134 ",
+                    "complemento": null,
+                    "bairro": "MONT SERRAT",
+                    "cidade": "PORTO ALEGRE",
+                    "estado": "RS"
+                }
+            },
+            "matricula": {
+                "id": 4583725,
+                "turma_id": 298756,
+                "origem_id": null,
+                "ativa": true,
+                "situacao_atual_id": 1,
+                "data_matricula": "2024-02-17",
+                "data_saida": null,
+                "matricula_tipo_id": 1
+            },
+            "description": "MENSALIDADES NA TURMA ABA AO TEA - TURMA2 - S/2024 - (20/20)",
+            "order": 20,
+            "invoice_group_id": 5808000,
+            "invoice_group_type_id": 35272,
+            "invoice_group_type_name": "MENSALIDADE",
+            "invoice_group_type_description": null,
+            "invoice_group_total": 20,
+            "status": "PAGA",
+            "due_date": "2025-10-06",
+            "original_invoice_amount": "797,00",
+            "discounts": {
+                "fixed_discount_amount": "0,00",
+                "early_payment_discount": {
+                    "early_payment_discount_amount": "250,00",
+                    "early_payment_discount_percentage": "31.36"
+                },
+                "specific_days_discount1": {
+                    "discount_amount": "0,00",
+                    "discount_percentage": "0",
+                    "deadline": 0
+                },
+                "specific_days_discount2": {
+                    "discount_amount": "0,00",
+                    "discount_percentage": "0",
+                    "deadline": 0
+                }
+            },
+            "late_payment_fees": {
+                "fine": "1",
+                "interest": "0.033"
+            },
+            "updated_invoice_amount": "797,00",
+            "paid_invoice_amount": "547,00",
+            "payment_date": "2025-10-06",
+            "bank_slip": {
+                "external_gateway_url": "https://app.proesc.com/checkout/F39E20FC890A4E78875F3BAB67D2228D?utm_source=proesc&utm_medium=sistema",
+                "external_gateway_id": "F39E20FC890A4E78875F3BAB67D2228D",
+                "barcode_line": "40192024098200000000810000760768112260000079700",
+                "pix": {
+                    "pix_qrcode": "https://faturas.iugu.com/qr_code/f39e20fc-890a-4e78-875f-3bab67d2228d-dbea",
+                    "pix_text": "00020101021226840014br.gov.bcb.pix2562qr.iugu.com/public/payload/v2/F39E20FC890A4E78875F3BAB67D2228D5204000053039865406797.005802BR5925GAMA EDUCACIONAL E PESQUI6006MACEIO62070503***63046C0C"
+                }
+            }
+        },
+        {
+            "invoice_id": 32186467,
+            "person_id": 5237630,
+            "pessoa": {
+                "id": 5237630,
+                "nome": "ANA ROSA BANDEIRA LEMOS PALMEIRA",
+                "cadastro_nacional": "12689347474",
+                "email_comunicacao": "anarosapalmeira@hotmail.com",
+                "endereco": {
+                    "id": 4642822,
+                    "pessoa_id": 5237630,
+                    "cep": "57080800",
+                    "nome": "RUA DOUTOR JORGE DE MELO E SILVA",
+                    "numero": "13",
+                    "complemento": "RES. JARDIM PETR\u00d3POLIS 1",
+                    "bairro": "JARDIM PETR\u00d3POLIS ",
+                    "cidade": "MACEI\u00d3",
+                    "estado": "AL"
+                }
+            },
+            "matricula": {
+                "id": 4656401,
+                "turma_id": 298756,
+                "origem_id": null,
+                "ativa": true,
+                "situacao_atual_id": 1,
+                "data_matricula": "2024-02-20",
+                "data_saida": null,
+                "matricula_tipo_id": 1
+            },
+            "description": "MENSALIDADES NA TURMA ABA AO TEA - TURMA2 - S/2024 - (20/20)",
+            "order": 20,
+            "invoice_group_id": 5815652,
+            "invoice_group_type_id": 35272,
+            "invoice_group_type_name": "MENSALIDADE",
+            "invoice_group_type_description": null,
+            "invoice_group_total": 20,
+            "status": "PAGA",
+            "due_date": "2025-10-06",
+            "original_invoice_amount": "797,00",
+            "discounts": {
+                "fixed_discount_amount": "0,00",
+                "early_payment_discount": {
+                    "early_payment_discount_amount": "250,00",
+                    "early_payment_discount_percentage": "31.36"
+                },
+                "specific_days_discount1": {
+                    "discount_amount": "0,00",
+                    "discount_percentage": "0",
+                    "deadline": 0
+                },
+                "specific_days_discount2": {
+                    "discount_amount": "0,00",
+                    "discount_percentage": "0",
+                    "deadline": 0
+                }
+            },
+            "late_payment_fees": {
+                "fine": "1",
+                "interest": "0.033"
+            },
+            "updated_invoice_amount": "797,00",
+            "paid_invoice_amount": "547,00",
+            "payment_date": "2025-10-06",
+            "bank_slip": {
+                "external_gateway_url": "https://app.proesc.com/checkout/207F167B66A343A2B2A541E91D8D20B2?utm_source=proesc&utm_medium=sistema",
+                "external_gateway_id": "207F167B66A343A2B2A541E91D8D20B2",
+                "barcode_line": "40192024099200000000710003110961812260000079700",
+                "pix": {
+                    "pix_qrcode": "https://faturas.iugu.com/qr_code/207f167b-66a3-43a2-b2a5-41e91d8d20b2-cd35",
+                    "pix_text": "00020101021226840014br.gov.bcb.pix2562qr.iugu.com/public/payload/v2/207F167B66A343A2B2A541E91D8D20B25204000053039865406797.005802BR5925GAMA EDUCACIONAL E PESQUI6006MACEIO62070503***63042378"
+                }
+            }
+        },
+        {
+            "invoice_id": 32211687,
+            "person_id": 4898194,
+            "pessoa": {
+                "id": 4898194,
+                "nome": "THALITA TATIANA PAIVA DE ALMEIDA",
+                "cadastro_nacional": "10730768490",
+                "email_comunicacao": "thalitaapaiva@hotmail.com",
+                "endereco": {
+                    "id": 4432098,
+                    "pessoa_id": 4898194,
+                    "cep": "50790090",
+                    "nome": "RUA JOAO DE ANDRADE",
+                    "numero": "40 C",
+                    "complemento": null,
+                    "bairro": "JARDIM S\u00c3O PAULO",
+                    "cidade": "RECIFE",
+                    "estado": "PE"
+                }
+            },
+            "matricula": {
+                "id": 4586472,
+                "turma_id": 298756,
+                "origem_id": null,
+                "ativa": true,
+                "situacao_atual_id": 1,
+                "data_matricula": "2024-02-19",
+                "data_saida": null,
+                "matricula_tipo_id": 1
+            },
+            "description": "MENSALIDADES NA TURMA ABA AO TEA - TURMA2 - S/2024 - (20/20)",
+            "order": 20,
+            "invoice_group_id": 5820469,
+            "invoice_group_type_id": 35272,
+            "invoice_group_type_name": "MENSALIDADE",
+            "invoice_group_type_description": null,
+            "invoice_group_total": 20,
+            "status": "VENCIDO",
+            "due_date": "2025-10-06",
+            "original_invoice_amount": "797,00",
+            "discounts": {
+                "fixed_discount_amount": "0,00",
+                "early_payment_discount": {
+                    "early_payment_discount_amount": "250,00",
+                    "early_payment_discount_percentage": "31.36"
+                },
+                "specific_days_discount1": {
+                    "discount_amount": "0,00",
+                    "discount_percentage": "0",
+                    "deadline": 0
+                },
+                "specific_days_discount2": {
+                    "discount_amount": "0,00",
+                    "discount_percentage": "0",
+                    "deadline": 0
+                }
+            },
+            "late_payment_fees": {
+                "fine": "1",
+                "interest": "0.033"
+            },
+            "updated_invoice_amount": "797,00",
+            "paid_invoice_amount": "0,00",
+            "payment_date": null,
+            "bank_slip": {
+                "external_gateway_url": "https://app.proesc.com/checkout/47AE404FD0BF45E68B31C124029E83A5?utm_source=proesc&utm_medium=sistema",
+                "external_gateway_id": "47AE404FD0BF45E68B31C124029E83A5",
+                "barcode_line": "40192024099200000000710004175211412260000079700",
+                "pix": {
+                    "pix_qrcode": "https://faturas.iugu.com/qr_code/47ae404f-d0bf-45e6-8b31-c124029e83a5-b396",
+                    "pix_text": "00020101021226840014br.gov.bcb.pix2562qr.iugu.com/public/payload/v2/47AE404FD0BF45E68B31C124029E83A55204000053039865406797.005802BR5925GAMA EDUCACIONAL E PESQUI6006MACEIO62070503***630483BA"
+                }
+            }
+        },
+        {
+            "invoice_id": 32211830,
+            "person_id": 5215333,
+            "pessoa": {
+                "id": 5215333,
+                "nome": "TAYNARA ANJOS FARIAS DAMASCENO",
+                "cadastro_nacional": "05741172539",
+                "email_comunicacao": "taynaraanjospsi@gmail.com",
+                "endereco": {
+                    "id": 4621193,
+                    "pessoa_id": 5215333,
+                    "cep": "41706670",
+                    "nome": "AVENIDA DOM EUG\u00caNIO SALES",
+                    "numero": "50",
+                    "complemento": "CONDOM\u00cdNIO PARQUE RESIDENCIAL JARDIM PITUASSU",
+                    "bairro": "BOCA DO RIO",
+                    "cidade": "SALVADOR",
+                    "estado": "BA"
+                }
+            },
+            "matricula": {
+                "id": 4586508,
+                "turma_id": 298756,
+                "origem_id": null,
+                "ativa": true,
+                "situacao_atual_id": 1,
+                "data_matricula": "2024-02-19",
+                "data_saida": null,
+                "matricula_tipo_id": 1
+            },
+            "description": "MENSALIDADES NA TURMA ABA AO TEA - TURMA2 - S/2024 - (20/20)",
+            "order": 20,
+            "invoice_group_id": 5820486,
+            "invoice_group_type_id": 35272,
+            "invoice_group_type_name": "MENSALIDADE",
+            "invoice_group_type_description": null,
+            "invoice_group_total": 20,
+            "status": "PAGAMENTO PARCIAL",
+            "due_date": "2025-10-06",
+            "original_invoice_amount": "797,00",
+            "discounts": {
+                "fixed_discount_amount": "0,00",
+                "early_payment_discount": {
+                    "early_payment_discount_amount": "250,00",
+                    "early_payment_discount_percentage": "33.02"
+                },
+                "specific_days_discount1": {
+                    "discount_amount": "0,00",
+                    "discount_percentage": "0",
+                    "deadline": 0
+                },
+                "specific_days_discount2": {
+                    "discount_amount": "0,00",
+                    "discount_percentage": "0",
+                    "deadline": 0
+                }
+            },
+            "late_payment_fees": {
+                "fine": "1",
+                "interest": "0.033"
+            },
+            "updated_invoice_amount": "797,00",
+            "paid_invoice_amount": "507,00",
+            "payment_date": "2025-10-06",
+            "bank_slip": {
+                "external_gateway_url": "https://app.proesc.com/checkout/8B8CFEF76F4F44C9A3E6C5BF9B7E92FA?utm_source=proesc&utm_medium=sistema",
+                "external_gateway_id": "8B8CFEF76F4F44C9A3E6C5BF9B7E92FA",
+                "barcode_line": "40192024095200000000110002288305512260000075700",
+                "pix": {
+                    "pix_qrcode": "https://faturas.iugu.com/qr_code/8b8cfef7-6f4f-44c9-a3e6-c5bf9b7e92fa-412d",
+                    "pix_text": "00020101021226840014br.gov.bcb.pix2562qr.iugu.com/public/payload/v2/8B8CFEF76F4F44C9A3E6C5BF9B7E92FA5204000053039865406757.005802BR5925GAMA EDUCACIONAL E PESQUI6006MACEIO62070503***6304011F"
+                }
+            }
+        },
+        {
+            "invoice_id": 32212031,
+            "person_id": 4806672,
+            "pessoa": {
+                "id": 4806672,
+                "nome": "JULLY LEITE DOS SANTOS",
+                "cadastro_nacional": "11261856473",
+                "email_comunicacao": "jully.leite1@gmail.com",
+                "endereco": {
+                    "id": 4400493,
+                    "pessoa_id": 4806672,
+                    "cep": "55292663",
+                    "nome": "RUA PARAGUAI",
+                    "numero": "556",
+                    "complemento": null,
+                    "bairro": "BOA VISTA",
+                    "cidade": "GARANHUNS",
+                    "estado": "PE"
+                }
+            },
+            "matricula": {
+                "id": 4586619,
+                "turma_id": 298756,
+                "origem_id": null,
+                "ativa": true,
+                "situacao_atual_id": 1,
+                "data_matricula": "2024-02-19",
+                "data_saida": null,
+                "matricula_tipo_id": 1
+            },
+            "description": "MENSALIDADES NA TURMA ABA AO TEA - TURMA2 - S/2024 - (20/20)",
+            "order": 20,
+            "invoice_group_id": 5820517,
+            "invoice_group_type_id": 35272,
+            "invoice_group_type_name": "MENSALIDADE",
+            "invoice_group_type_description": null,
+            "invoice_group_total": 20,
+            "status": "PAGA",
+            "due_date": "2025-10-06",
+            "original_invoice_amount": "797,00",
+            "discounts": {
+                "fixed_discount_amount": "0,00",
+                "early_payment_discount": {
+                    "early_payment_discount_amount": "250,00",
+                    "early_payment_discount_percentage": "31.36"
+                },
+                "specific_days_discount1": {
+                    "discount_amount": "0,00",
+                    "discount_percentage": "0",
+                    "deadline": 0
+                },
+                "specific_days_discount2": {
+                    "discount_amount": "0,00",
+                    "discount_percentage": "0",
+                    "deadline": 0
+                }
+            },
+            "late_payment_fees": {
+                "fine": "1",
+                "interest": "0.033"
+            },
+            "updated_invoice_amount": "797,00",
+            "paid_invoice_amount": "547,00",
+            "payment_date": "2025-10-06",
+            "bank_slip": {
+                "external_gateway_url": "https://app.proesc.com/checkout/C6B0133FA6D24C6496436D11E20DD804?utm_source=proesc&utm_medium=sistema",
+                "external_gateway_id": "C6B0133FA6D24C6496436D11E20DD804",
+                "barcode_line": "40192024099200000000710003822623312260000079700",
+                "pix": {
+                    "pix_qrcode": "https://faturas.iugu.com/qr_code/c6b0133f-a6d2-4c64-9643-6d11e20dd804-631c",
+                    "pix_text": "00020101021226840014br.gov.bcb.pix2562qr.iugu.com/public/payload/v2/C6B0133FA6D24C6496436D11E20DD8045204000053039865406797.005802BR5925GAMA EDUCACIONAL E PESQUI6006MACEIO62070503***63047DCF"
+                }
+            }
+        },
+        {
+            "invoice_id": 32212094,
+            "person_id": 5213955,
+            "pessoa": {
+                "id": 5213955,
+                "nome": "CAROLINA SANCHEZ DE FARIA",
+                "cadastro_nacional": "03740241977",
+                "email_comunicacao": "lolafaria@hotmail.com",
+                "endereco": {
+                    "id": 4620027,
+                    "pessoa_id": 5213955,
+                    "cep": "85966216",
+                    "nome": "RUA DARLEY GERMANO BREGOLLI",
+                    "numero": "5110",
+                    "complemento": null,
+                    "bairro": "VILA GA\u00daCHA",
+                    "cidade": "MARECHAL C\u00c2NDIDO RONDON",
+                    "estado": "PR"
+                }
+            },
+            "matricula": {
+                "id": 4586650,
+                "turma_id": 298756,
+                "origem_id": null,
+                "ativa": true,
+                "situacao_atual_id": 1,
+                "data_matricula": "2024-02-19",
+                "data_saida": null,
+                "matricula_tipo_id": 1
+            },
+            "description": "MENSALIDADES NA TURMA ABA AO TEA - TURMA2 - S/2024 - (20/20)",
+            "order": 20,
+            "invoice_group_id": 5820523,
+            "invoice_group_type_id": 35272,
+            "invoice_group_type_name": "MENSALIDADE",
+            "invoice_group_type_description": null,
+            "invoice_group_total": 20,
+            "status": "PAGA",
+            "due_date": "2025-10-06",
+            "original_invoice_amount": "797,00",
+            "discounts": {
+                "fixed_discount_amount": "0,00",
+                "early_payment_discount": {
+                    "early_payment_discount_amount": "250,00",
+                    "early_payment_discount_percentage": "31.36"
+                },
+                "specific_days_discount1": {
+                    "discount_amount": "0,00",
+                    "discount_percentage": "0",
+                    "deadline": 0
+                },
+                "specific_days_discount2": {
+                    "discount_amount": "0,00",
+                    "discount_percentage": "0",
+                    "deadline": 0
+                }
+            },
+            "late_payment_fees": {
+                "fine": "1",
+                "interest": "0.033"
+            },
+            "updated_invoice_amount": "797,00",
+            "paid_invoice_amount": "547,00",
+            "payment_date": "2025-10-06",
+            "bank_slip": {
+                "external_gateway_url": "https://app.proesc.com/checkout/50FD015202764A7E8602215C722B13FD?utm_source=proesc&utm_medium=sistema",
+                "external_gateway_id": "50FD015202764A7E8602215C722B13FD",
+                "barcode_line": "40192024099200000000710003200291112260000079700",
+                "pix": {
+                    "pix_qrcode": "https://faturas.iugu.com/qr_code/50fd0152-0276-4a7e-8602-215c722b13fd-cdf5",
+                    "pix_text": "00020101021226840014br.gov.bcb.pix2562qr.iugu.com/public/payload/v2/50FD015202764A7E8602215C722B13FD5204000053039865406797.005802BR5925GAMA EDUCACIONAL E PESQUI6006MACEIO62070503***63047D9A"
+                }
+            }
+        },
+        {
+            "invoice_id": 32212197,
+            "person_id": 4665461,
+            "pessoa": {
+                "id": 4665461,
+                "nome": "ANGLA SUELY ALMEIDA CAMILO BARBOSA",
+                "cadastro_nacional": "02905411155",
+                "email_comunicacao": "adv.angla@gmail.com",
+                "endereco": {
+                    "id": 4256791,
+                    "pessoa_id": 4665461,
+                    "cep": "74366022",
+                    "nome": "RUA GV2",
+                    "numero": "LOTE 5",
+                    "complemento": "CONDOM\u00cdNIO GRANVILLE, QUADRA 1",
+                    "bairro": "RESIDENCIAL GRANVILLE",
+                    "cidade": "GOI\u00c2NIA",
+                    "estado": "GO"
+                }
+            },
+            "matricula": null,
+            "description": "MENSALIDADES NA TURMA ABA AO TEA - TURMA2 - S/2024 - (4/4)",
+            "order": 4,
+            "invoice_group_id": 5820527,
+            "invoice_group_type_id": 35272,
+            "invoice_group_type_name": "MENSALIDADE",
+            "invoice_group_type_description": null,
+            "invoice_group_total": 4,
+            "status": "PAGA",
+            "due_date": "2025-10-05",
+            "original_invoice_amount": "797,00",
+            "discounts": {
+                "fixed_discount_amount": "0,00",
+                "early_payment_discount": {
+                    "early_payment_discount_amount": "250,00",
+                    "early_payment_discount_percentage": "31.36"
+                },
+                "specific_days_discount1": {
+                    "discount_amount": "0,00",
+                    "discount_percentage": "0",
+                    "deadline": 0
+                },
+                "specific_days_discount2": {
+                    "discount_amount": "0,00",
+                    "discount_percentage": "0",
+                    "deadline": 0
+                }
+            },
+            "late_payment_fees": {
+                "fine": "1",
+                "interest": "0.033"
+            },
+            "updated_invoice_amount": "797,00",
+            "paid_invoice_amount": "0,00",
+            "payment_date": "2024-03-04",
+            "bank_slip": {
+                "external_gateway_url": "no link available",
+                "external_gateway_id": null,
+                "barcode_line": null,
+                "pix": {
+                    "pix_qrcode": null,
+                    "pix_text": null
+                }
+            }
+        },
+        {
+            "invoice_id": 32212297,
+            "person_id": 4596230,
+            "pessoa": {
+                "id": 4596230,
+                "nome": "THA\u00cdS CAMPOS TEIXEIRA",
+                "cadastro_nacional": "95746544000",
+                "email_comunicacao": "camposteixeira.thais@gmail.com",
+                "endereco": {
+                    "id": 4170802,
+                    "pessoa_id": 4596230,
+                    "cep": "96820520",
+                    "nome": "RUA DOUTOR ORTENBERG",
+                    "numero": "483 ",
+                    "complemento": "APTO 202",
+                    "bairro": "SANTO IN\u00c1CIO",
+                    "cidade": "SANTA CRUZ DO SUL",
+                    "estado": "RS"
+                }
+            },
+            "matricula": {
+                "id": 4692457,
+                "turma_id": 298756,
+                "origem_id": null,
+                "ativa": true,
+                "situacao_atual_id": 1,
+                "data_matricula": "2024-02-21",
+                "data_saida": null,
+                "matricula_tipo_id": 1
+            },
+            "description": "MENSALIDADES NA TURMA ABA AO TEA - TURMA2 - S/2024 - (20/20)",
+            "order": 20,
+            "invoice_group_id": 5820544,
+            "invoice_group_type_id": 35272,
+            "invoice_group_type_name": "MENSALIDADE",
+            "invoice_group_type_description": null,
+            "invoice_group_total": 20,
+            "status": "PAGA",
+            "due_date": "2025-10-05",
+            "original_invoice_amount": "797,00",
+            "discounts": {
+                "fixed_discount_amount": "0,00",
+                "early_payment_discount": {
+                    "early_payment_discount_amount": "250,00",
+                    "early_payment_discount_percentage": "31.32"
+                },
+                "specific_days_discount1": {
+                    "discount_amount": "0,00",
+                    "discount_percentage": "0",
+                    "deadline": 0
+                },
+                "specific_days_discount2": {
+                    "discount_amount": "0,00",
+                    "discount_percentage": "0",
+                    "deadline": 0
+                }
+            },
+            "late_payment_fees": {
+                "fine": "1",
+                "interest": "0.033"
+            },
+            "updated_invoice_amount": "797,00",
+            "paid_invoice_amount": "0,00",
+            "payment_date": "2024-03-04",
+            "bank_slip": {
+                "external_gateway_url": "no link available",
+                "external_gateway_id": null,
+                "barcode_line": null,
+                "pix": {
+                    "pix_qrcode": null,
+                    "pix_text": null
+                }
+            }
+        },
+        {
+            "invoice_id": 32223795,
+            "person_id": 4928757,
+            "pessoa": {
+                "id": 4928757,
+                "nome": "ED\u00caNIA ALVES FIGUEIREDO BERNARDO",
+                "cadastro_nacional": "02158236485",
+                "email_comunicacao": "edeniabernardo@yahoo.com.br",
+                "endereco": {
+                    "id": 4462034,
+                    "pessoa_id": 4928757,
+                    "cep": "40295030",
+                    "nome": "RUA CONSELHEIRO CORR\u00caA DE MENEZES",
+                    "numero": "220 ",
+                    "complemento": "EDIF\u00cdCIO MANS\u00c3O HORTO BOULEVARD, APTO 1302",
+                    "bairro": "HORTO FLORESTAL",
+                    "cidade": "SALVADOR",
+                    "estado": "BA"
+                }
+            },
+            "matricula": {
+                "id": 4586640,
+                "turma_id": 298756,
+                "origem_id": null,
+                "ativa": true,
+                "situacao_atual_id": 1,
+                "data_matricula": "2024-02-19",
+                "data_saida": null,
+                "matricula_tipo_id": 1
+            },
+            "description": "MENSALIDADES NA TURMA ABA AO TEA - TURMA2 - S/2024 - (20/20)",
+            "order": 20,
+            "invoice_group_id": 5823022,
+            "invoice_group_type_id": 35272,
+            "invoice_group_type_name": "MENSALIDADE",
+            "invoice_group_type_description": null,
+            "invoice_group_total": 20,
+            "status": "PAGA",
+            "due_date": "2025-10-06",
+            "original_invoice_amount": "797,00",
+            "discounts": {
+                "fixed_discount_amount": "0,00",
+                "early_payment_discount": {
+                    "early_payment_discount_amount": "250,00",
+                    "early_payment_discount_percentage": "31.36"
+                },
+                "specific_days_discount1": {
+                    "discount_amount": "0,00",
+                    "discount_percentage": "0",
+                    "deadline": 0
+                },
+                "specific_days_discount2": {
+                    "discount_amount": "0,00",
+                    "discount_percentage": "0",
+                    "deadline": 0
+                }
+            },
+            "late_payment_fees": {
+                "fine": "1",
+                "interest": "0.033"
+            },
+            "updated_invoice_amount": "797,00",
+            "paid_invoice_amount": "547,00",
+            "payment_date": "2025-10-03",
+            "bank_slip": {
+                "external_gateway_url": "https://app.proesc.com/checkout/8D9E7BC6FE5A4621B6039398C6144BF2?utm_source=proesc&utm_medium=sistema",
+                "external_gateway_id": "8D9E7BC6FE5A4621B6039398C6144BF2",
+                "barcode_line": "40192024099200000000710003407045912260000079700",
+                "pix": {
+                    "pix_qrcode": "https://faturas.iugu.com/qr_code/8d9e7bc6-fe5a-4621-b603-9398c6144bf2-b64d",
+                    "pix_text": "00020101021226840014br.gov.bcb.pix2562qr.iugu.com/public/payload/v2/8D9E7BC6FE5A4621B6039398C6144BF25204000053039865406797.005802BR5925GAMA EDUCACIONAL E PESQUI6006MACEIO62070503***630441BB"
+                }
+            }
+        },
+        {
+            "invoice_id": 32260133,
+            "person_id": 4472928,
+            "pessoa": {
+                "id": 4472928,
+                "nome": "ANITA JOVELINA BRITO DE JESUS",
+                "cadastro_nacional": "13989336860",
+                "email_comunicacao": "anita301071@gmail.com",
+                "endereco": {
+                    "id": 3623849,
+                    "pessoa_id": 4472928,
+                    "cep": "06600140",
+                    "nome": "RUA ANDR\u00c9 VIDAL DE NEGREIROS",
+                    "numero": "201",
+                    "complemento": null,
+                    "bairro": "CENTRO",
+                    "cidade": "JANDIRA",
+                    "estado": "SP"
+                }
+            },
+            "matricula": {
+                "id": 4706508,
+                "turma_id": 298756,
+                "origem_id": null,
+                "ativa": false,
+                "situacao_atual_id": 5,
+                "data_matricula": "2024-02-24",
+                "data_saida": "2024-09-03",
+                "matricula_tipo_id": 1
+            },
+            "description": "MENSALIDADES NA TURMA ABA AO TEA - TURMA2 - S/2024 - (20/20)",
+            "order": 20,
+            "invoice_group_id": 5831979,
+            "invoice_group_type_id": 35272,
+            "invoice_group_type_name": "MENSALIDADE",
+            "invoice_group_type_description": null,
+            "invoice_group_total": 20,
+            "status": "PAGA",
+            "due_date": "2025-10-05",
+            "original_invoice_amount": "797,00",
+            "discounts": {
+                "fixed_discount_amount": "0,00",
+                "early_payment_discount": {
+                    "early_payment_discount_amount": "797,00",
+                    "early_payment_discount_percentage": "100"
+                },
+                "specific_days_discount1": {
+                    "discount_amount": "0,00",
+                    "discount_percentage": "0",
+                    "deadline": 0
+                },
+                "specific_days_discount2": {
+                    "discount_amount": "0,00",
+                    "discount_percentage": "0",
+                    "deadline": 0
+                }
+            },
+            "late_payment_fees": {
+                "fine": "1",
+                "interest": "0.033"
+            },
+            "updated_invoice_amount": "797,00",
+            "paid_invoice_amount": "0,00",
+            "payment_date": "2024-02-24",
+            "bank_slip": {
+                "external_gateway_url": "no link available",
+                "external_gateway_id": null,
+                "barcode_line": null,
+                "pix": {
+                    "pix_qrcode": null,
+                    "pix_text": null
+                }
+            }
+        },
+        {
+            "invoice_id": 32260225,
+            "person_id": 4612339,
+            "pessoa": {
+                "id": 4612339,
+                "nome": "DANIELA DE MORAES DEO",
+                "cadastro_nacional": "27717918897",
+                "email_comunicacao": "danielalui@icloud.com",
+                "endereco": {
+                    "id": 4190621,
+                    "pessoa_id": 4612339,
+                    "cep": "15500003",
+                    "nome": "RUA MINAS GERAIS",
+                    "numero": "3539",
+                    "complemento": null,
+                    "bairro": "PATRIM\u00d4NIO NOVO",
+                    "cidade": "VOTUPORANGA",
+                    "estado": "SP"
+                }
+            },
+            "matricula": {
+                "id": 4706581,
+                "turma_id": 298756,
+                "origem_id": null,
+                "ativa": false,
+                "situacao_atual_id": 5,
+                "data_matricula": "2024-02-24",
+                "data_saida": "2025-06-06",
+                "matricula_tipo_id": 1
+            },
+            "description": "MENSALIDADES NA TURMA ABA AO TEA - TURMA2 - S/2024 - (8/8)",
+            "order": 8,
+            "invoice_group_id": 5831990,
+            "invoice_group_type_id": 35272,
+            "invoice_group_type_name": "MENSALIDADE",
+            "invoice_group_type_description": null,
+            "invoice_group_total": 8,
+            "status": "PAGA",
+            "due_date": "2025-10-05",
+            "original_invoice_amount": "797,00",
+            "discounts": {
+                "fixed_discount_amount": "0,00",
+                "early_payment_discount": {
+                    "early_payment_discount_amount": "250,00",
+                    "early_payment_discount_percentage": "31.36"
+                },
+                "specific_days_discount1": {
+                    "discount_amount": "0,00",
+                    "discount_percentage": "0",
+                    "deadline": 0
+                },
+                "specific_days_discount2": {
+                    "discount_amount": "0,00",
+                    "discount_percentage": "0",
+                    "deadline": 0
+                }
+            },
+            "late_payment_fees": {
+                "fine": "1",
+                "interest": "0.033"
+            },
+            "updated_invoice_amount": "797,00",
+            "paid_invoice_amount": "0,00",
+            "payment_date": "2024-03-04",
+            "bank_slip": {
+                "external_gateway_url": "no link available",
+                "external_gateway_id": null,
+                "barcode_line": null,
+                "pix": {
+                    "pix_qrcode": null,
+                    "pix_text": null
+                }
+            }
+        },
+        {
+            "invoice_id": 32305212,
+            "person_id": 4574315,
+            "pessoa": {
+                "id": 4574315,
+                "nome": "GIULIA OLIVEIRA FALC\u00c3O LIMA",
+                "cadastro_nacional": "06652214520",
+                "email_comunicacao": "g.falima@hotmail.com",
+                "endereco": {
+                    "id": 3739978,
+                    "pessoa_id": 4574315,
+                    "cep": "49027090",
+                    "nome": "RUA DOUTOR JOS\u00c9 ROBERTO RIBEIRO",
+                    "numero": "S/N",
+                    "complemento": null,
+                    "bairro": "GRAGERU",
+                    "cidade": "ARACAJU",
+                    "estado": "SE"
+                }
+            },
+            "matricula": null,
+            "description": "MENSALIDADES NA TURMA ABA AO TEA - TURMA2 - S/2024 - (5/5)",
+            "order": 5,
+            "invoice_group_id": 5840861,
+            "invoice_group_type_id": 35272,
+            "invoice_group_type_name": "MENSALIDADE",
+            "invoice_group_type_description": null,
+            "invoice_group_total": 5,
+            "status": "PAGA",
+            "due_date": "2025-10-05",
+            "original_invoice_amount": "797,00",
+            "discounts": {
+                "fixed_discount_amount": "0,00",
+                "early_payment_discount": {
+                    "early_payment_discount_amount": "250,00",
+                    "early_payment_discount_percentage": "31.36"
+                },
+                "specific_days_discount1": {
+                    "discount_amount": "0,00",
+                    "discount_percentage": "0",
+                    "deadline": 0
+                },
+                "specific_days_discount2": {
+                    "discount_amount": "0,00",
+                    "discount_percentage": "0",
+                    "deadline": 0
+                }
+            },
+            "late_payment_fees": {
+                "fine": "1",
+                "interest": "0.033"
+            },
+            "updated_invoice_amount": "797,00",
+            "paid_invoice_amount": "0,00",
+            "payment_date": "2024-03-04",
+            "bank_slip": {
+                "external_gateway_url": "no link available",
+                "external_gateway_id": null,
+                "barcode_line": null,
+                "pix": {
+                    "pix_qrcode": null,
+                    "pix_text": null
+                }
+            }
+        },
+        {
+            "invoice_id": 32305262,
+            "person_id": 4669722,
+            "pessoa": {
+                "id": 4669722,
+                "nome": "CAROLINE GABRIEL MANTOVANI",
+                "cadastro_nacional": "33389623809",
+                "email_comunicacao": "cmantovani3@gmail.com",
+                "endereco": {
+                    "id": 4260696,
+                    "pessoa_id": 4669722,
+                    "cep": "09811060",
+                    "nome": "RUA \u00c2NGELO PESSOTTI",
+                    "numero": "100",
+                    "complemento": null,
+                    "bairro": "ASSUN\u00c7\u00c3O",
+                    "cidade": "S\u00c3O BERNARDO DO CAMPO",
+                    "estado": "SP"
+                }
+            },
+            "matricula": null,
+            "description": "MENSALIDADES NA TURMA ABA AO TEA - TURMA2 - S/2024 - (3/3)",
+            "order": 3,
+            "invoice_group_id": 5840870,
+            "invoice_group_type_id": 35272,
+            "invoice_group_type_name": "MENSALIDADE",
+            "invoice_group_type_description": null,
+            "invoice_group_total": 3,
+            "status": "PAGA",
+            "due_date": "2025-10-05",
+            "original_invoice_amount": "797,00",
+            "discounts": {
+                "fixed_discount_amount": "0,00",
+                "early_payment_discount": {
+                    "early_payment_discount_amount": "250,00",
+                    "early_payment_discount_percentage": "31.36"
+                },
+                "specific_days_discount1": {
+                    "discount_amount": "0,00",
+                    "discount_percentage": "0",
+                    "deadline": 0
+                },
+                "specific_days_discount2": {
+                    "discount_amount": "0,00",
+                    "discount_percentage": "0",
+                    "deadline": 0
+                }
+            },
+            "late_payment_fees": {
+                "fine": "1",
+                "interest": "0.033"
+            },
+            "updated_invoice_amount": "797,00",
+            "paid_invoice_amount": "0,00",
+            "payment_date": "2024-03-04",
+            "bank_slip": {
+                "external_gateway_url": "no link available",
+                "external_gateway_id": null,
+                "barcode_line": null,
+                "pix": {
+                    "pix_qrcode": null,
+                    "pix_text": null
+                }
+            }
+        },
+        {
+            "invoice_id": 32338904,
+            "person_id": 8535945,
+            "pessoa": {
+                "id": 8535945,
+                "nome": "LAIS GONSAGA MIRANDA",
+                "cadastro_nacional": "05659552501",
+                "email_comunicacao": "lais.gonsaga51@gmail.com",
+                "endereco": {
+                    "id": 5327368,
+                    "pessoa_id": 8535945,
+                    "cep": "40713030",
+                    "nome": "TRAVESSA ANT\u00d4NIO BANDEIRA",
+                    "numero": "198 E",
+                    "complemento": null,
+                    "bairro": "ITACARANHA",
+                    "cidade": "SALVADOR",
+                    "estado": "BA"
+                }
+            },
+            "matricula": {
+                "id": 4730473,
+                "turma_id": 298756,
+                "origem_id": null,
+                "ativa": true,
+                "situacao_atual_id": 1,
+                "data_matricula": "2024-03-01",
+                "data_saida": null,
+                "matricula_tipo_id": 1
+            },
+            "description": "MENSALIDADES NA TURMA ABA AO TEA - TURMA2 - S/2024 - (20/20)",
+            "order": 20,
+            "invoice_group_id": 5846819,
+            "invoice_group_type_id": 35272,
+            "invoice_group_type_name": "MENSALIDADE",
+            "invoice_group_type_description": null,
+            "invoice_group_total": 20,
+            "status": "PAGA",
+            "due_date": "2025-10-06",
+            "original_invoice_amount": "797,00",
+            "discounts": {
+                "fixed_discount_amount": "0,00",
+                "early_payment_discount": {
+                    "early_payment_discount_amount": "250,00",
+                    "early_payment_discount_percentage": "31.36"
+                },
+                "specific_days_discount1": {
+                    "discount_amount": "0,00",
+                    "discount_percentage": "0",
+                    "deadline": 0
+                },
+                "specific_days_discount2": {
+                    "discount_amount": "0,00",
+                    "discount_percentage": "0",
+                    "deadline": 0
+                }
+            },
+            "late_payment_fees": {
+                "fine": "1",
+                "interest": "0.033"
+            },
+            "updated_invoice_amount": "797,00",
+            "paid_invoice_amount": "547,00",
+            "payment_date": "2025-10-06",
+            "bank_slip": {
+                "external_gateway_url": "https://app.proesc.com/checkout/FC510C4A79E34014BEAFC406A2A1148D?utm_source=proesc&utm_medium=sistema",
+                "external_gateway_id": "FC510C4A79E34014BEAFC406A2A1148D",
+                "barcode_line": "40192024099200000000710003873006712260000079700",
+                "pix": {
+                    "pix_qrcode": "https://faturas.iugu.com/qr_code/fc510c4a-79e3-4014-beaf-c406a2a1148d-38cc",
+                    "pix_text": "00020101021226840014br.gov.bcb.pix2562qr.iugu.com/public/payload/v2/FC510C4A79E34014BEAFC406A2A1148D5204000053039865406797.005802BR5925GAMA EDUCACIONAL E PESQUI6006MACEIO62070503***6304E341"
+                }
+            }
+        }
+    ],
+    "first_page_url": "http://api.proesc.com/api/v2/invoices?page=1",
+    "from": 1,
+    "last_page": 42,
+    "last_page_url": "http://api.proesc.com/api/v2/invoices?page=42",
+    "links": [
+        {
+            "url": null,
+            "label": "&laquo; Previous",
+            "active": false
+        },
+        {
+            "url": "http://api.proesc.com/api/v2/invoices?page=1",
+            "label": "1",
+            "active": true
+        },
+        {
+            "url": "http://api.proesc.com/api/v2/invoices?page=2",
+            "label": "2",
+            "active": false
+        },
+        {
+            "url": "http://api.proesc.com/api/v2/invoices?page=3",
+            "label": "3",
+            "active": false
+        },
+        {
+            "url": "http://api.proesc.com/api/v2/invoices?page=4",
+            "label": "4",
+            "active": false
+        },
+        {
+            "url": "http://api.proesc.com/api/v2/invoices?page=5",
+            "label": "5",
+            "active": false
+        },
+        {
+            "url": "http://api.proesc.com/api/v2/invoices?page=6",
+            "label": "6",
+            "active": false
+        },
+        {
+            "url": "http://api.proesc.com/api/v2/invoices?page=7",
+            "label": "7",
+            "active": false
+        },
+        {
+            "url": "http://api.proesc.com/api/v2/invoices?page=8",
+            "label": "8",
+            "active": false
+        },
+        {
+            "url": "http://api.proesc.com/api/v2/invoices?page=9",
+            "label": "9",
+            "active": false
+        },
+        {
+            "url": "http://api.proesc.com/api/v2/invoices?page=10",
+            "label": "10",
+            "active": false
+        },
+        {
+            "url": null,
+            "label": "...",
+            "active": false
+        },
+        {
+            "url": "http://api.proesc.com/api/v2/invoices?page=41",
+            "label": "41",
+            "active": false
+        },
+        {
+            "url": "http://api.proesc.com/api/v2/invoices?page=42",
+            "label": "42",
+            "active": false
+        },
+        {
+            "url": "http://api.proesc.com/api/v2/invoices?page=2",
+            "label": "Next &raquo;",
+            "active": false
+        }
+    ],
+    "next_page_url": "http://api.proesc.com/api/v2/invoices?page=2",
+    "path": "http://api.proesc.com/api/v2/invoices",
+    "per_page": 20,
+    "prev_page_url": null,
+    "to": 20,
+    "total": 821
+}
