@@ -1,0 +1,125 @@
+name: CI/CD ETL SERVICOS ONLINE IEPSIS
+
+on:
+  push:
+    branches:
+      - develop  # Alterado para a branch de desenvolvimento
+  pull_request:
+    types: [closed] #Isso faz com que o workflow seja acionado quando um PR é fechado (merged ou não).
+    branches:
+      - main  # Pull request para a branch principal
+
+jobs:
+  deploy-to-homolog:
+    name: Deploy to Homologation
+    if: github.event_name == 'push' && github.ref == 'refs/heads/develop'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+        with:
+          ref: develop
+          token: ${{ secrets.PERSONAL_GITHUB_TOKEN }}
+      
+      - name: Deploy to Homologation Server
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.SERVER_IP_HML }}
+          username: ${{ secrets.SERVER_USER }}
+          key: ${{ secrets.SERVER_SSH_KEY }}
+          port: 5151
+          script: |
+            # Configura o Git para usar o token de acesso ao invés do username e password
+            git config --global url."https://${{ secrets.PERSONAL_GITHUB_TOKEN }}@github.com".insteadOf "https://github.com"
+            
+            #echo "Clone o repositório usando o token, especificando a branch develop"
+            sudo git clone -b develop https://${{ secrets.PERSONAL_GITHUB_TOKEN }}@github.com/victorpauloti/extract_data_proesc.git /home/ubuntu/tmp_etl_hom
+
+            # Use rsync para copiar os arquivos, excluindo .git e .github
+            # removi o --delete q tem a funcao de deletar o q nao esta na origem
+            echo "SYNC FILES HOMOLOGA"
+            sudo rsync -avz --exclude='.git' --exclude='.gitignore' --exclude='.github/' /home/ubuntu/tmp_etl_hom/ /home/ubuntu/services_etl_hom/
+            
+            # Remover o diretório temporário
+            echo "Remove files TEMP - HOMOLOGA"
+            sudo rm -rf /home/ubuntu/tmp_etl_hom
+
+            # Remover o diretório
+            echo "Remove files HOMOLOGA"
+            sudo rm -rf /home/ubuntu/services_etl_hom/notebook && sudo rm -rf /home/ubuntu/services_etl_hom/old_consultas
+            
+            # echo "permissões server files public - homologa"
+            # sudo chown -R ubuntu: /home/ubuntu/atmp_etl_hom/ > /dev/null 2>&1
+
+  create-pull-request:
+    name: Create Pull Request
+    needs: deploy-to-homolog
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0  # Importante para ter acesso a todas as branches
+      
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v3
+        with:
+          token: ${{ secrets.PERSONAL_GITHUB_TOKEN }}
+          branch: release-candidate
+          base: main
+          title: 'Deploy to Production'
+          body: 'This PR is automatically created to deploy changes to production.'
+
+  deploy-to-production:
+    name: Deploy to Production
+    #  garante que o deploy só ocorra quando o PR for merged.
+    if: github.event_name == 'pull_request' && github.event.pull_request.merged == true
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+        with:
+          ref: main
+          token: ${{ secrets.PERSONAL_GITHUB_TOKEN }}
+      
+      - name: Create GitHub deployment
+        uses: chrnorm/deployment-action@v2
+        id: deployment
+        with:
+          token: '${{ secrets.PERSONAL_GITHUB_TOKEN }}'
+          environment: production
+      
+      - name: Deploy to Production Server
+        uses: appleboy/ssh-action@master
+        env:
+          GITHUB_TOKEN: ${{ secrets.PERSONAL_GITHUB_TOKEN }}
+        with:
+          host: ${{ secrets.SERVER_IP }}
+          username: ${{ secrets.SERVER_USER }}
+          key: ${{ secrets.SERVER_SSH_KEY }}
+          port: 5151
+          script: |
+            # Configura o Git para usar o token de acesso ao invés do username e password
+            git config --global url."https://${{ secrets.PERSONAL_GITHUB_TOKEN }}@github.com".insteadOf "https://github.com"
+            
+            # Clone o repositório usando o token
+            sudo git clone -b develop https://${{ secrets.PERSONAL_GITHUB_TOKEN }}@github.com/victorpauloti/services_web_iepsis.git /home/ubuntu/tmp_deploy_services_prod
+
+            # Use rsync para copiar os arquivos, excluindo .git e .github
+            echo "SYNC FILES PRODUÇÃO"
+            sudo rsync -av --exclude='.git' --exclude='.github' --exclude='create_pass.py' --exclude='migrate.py' /home/ubuntu/tmp_deploy_services_prod/ /home/ubuntu/app_flask/services_web_iepsis_prod/ > /dev/null 2>&1
+
+            # Remover o diretório temporário
+            echo "Remove files temp - PRODUÇÃO"
+            #sudo rm -rf /home/ubuntu/tmp_deploy_services_prod
+            
+            echo "permissões server files public - PRODUÇÃO"
+            #sudo chown -R ubuntu: /home/ubuntu/app_flask/services_web_iepsis_prod/ > /dev/null 2>&1
+
+            # atualiza templates do flask
+            echo "Atualiza templates - PROD"
+            cd /home/ubuntu/app_flask/services_web_iepsis_prod/templates/* /var/www/html/servicos.vpaulo.com/public/templates/
+
+            # RESTART GUNICORN SERVICE
+            echo "Restart GUNICORN SERVICE - PROD"
+            sudo systemctl restart gunicorn_servico.service

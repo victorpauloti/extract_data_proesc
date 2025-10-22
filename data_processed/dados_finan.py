@@ -4,8 +4,10 @@ import pandas as pd
 from sqlalchemy import create_engine
 from dotenv import load_dotenv
 import logging
-logging.basicConfig(filename='etl_finan.log',level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
-
+logging.basicConfig(filename='etl_person.log',
+                    level=logging.INFO, 
+                    format='%(asctime)s - %(levelname)s - %(message)s',
+                    datefmt='%Y-%m-%d %H:%M:%S')
 
 load_dotenv()
 
@@ -25,26 +27,39 @@ class DadosFinanceiro:
         '''
         invoice_list = [] # armazenar paginas em lista
         years   = [2024,2025,2026]
-
         for ano in years:
-            page_num = 0
-            data_pag_ultima = 0
-            while page_num <= data_pag_ultima:
-                page_num = page_num + 1
+            page_num = 1
+
+            while True:
                 params = { "expiration_year": ano,
+                            #"expiration_month": f"{mes:02}",
                             "unit_id": self.unit_id,
                             "page": page_num
                         }
                 try:
                     response = requests.get(self.api_base_url, headers=self.headers,params=params)
-                    if  response.status_code == 200:
+                    if response.status_code == 200:
                         data = response.json()
-                        data_pag_ultima = data["last_page"]
-                        logging.info(f"Ano {ano} | Página {page_num}  DE {data_pag_ultima}")
-                        invoice_list.append(response.json())
-                except:
-                    logging.error(invoice_list.append(None))
+                        # Condição de parada 1: A API retorna uma lista de dados vazia
+                        if not data.get('data'):
+                            logging.info(f"Ano {ano} | Página {page_num} está vazia. Fim da paginação.")
+                            break
 
+                        logging.info(f"Ano {ano} | Página {page_num} de {data.get('last_page', 'N/A')} processada.")
+
+                        invoice_list.append(data)
+                        # Condição de parada 2: ao chegar na ultima pagina
+                        if page_num >= data.get('last_page', page_num):
+                            logging.info(f"Ano {ano} | Chegou na última página ({page_num}). Fim da paginação.")
+                            break
+                        page_num += 1
+
+                except requests.exceptions.RequestException as e:
+                    logging.error(f"Erro ao chamar API na página {page_num} para o ano {ano}: {e}")
+                    break # Interrompe em caso de erro de rede/HTTP
+                except Exception as e:
+                    logging.error(f"Erro inesperado ao processar página {page_num}: {e}")
+                    break
         return invoice_list
     
     def data_financial(self, invoice_list):
@@ -57,8 +72,8 @@ class DadosFinanceiro:
             for financial_data in invoice_per_page['data']:
                 # dados matricula
                 matricula_data_api = financial_data.get('matricula') or {} # se nao tiver matricula retorna um dict vazio
-                if matricula_data_api.get('turma_id') in turma_id:
-                    if matricula_data_api.get('ativa') == True:
+                if matricula_data_api.get('turma_id') in turma_id: # se a turma contem os ids selecionados
+                    if matricula_data_api.get('ativa') == True: # se a turma esta ativa nos sitema
                         matricula_turma_api = matricula_data_api.get('turma_id')
                         matricula_ativa_api = matricula_data_api.get('ativa')
                         # dados invoices(fatura)
@@ -120,6 +135,7 @@ class DadosFinanceiro:
 
     def insert_data_finan(self):
         data_frame_finan = self.create_df_finan()
-        engine = create_engine(os.getenv('DEV_DATABASE_URI'))
+        #engine = create_engine(os.getenv('DEV_DATABASE_URI'))
+        engine = create_engine(os.getenv('HOM_DATABASE_URI'))
         data_frame_finan.to_sql(name='invoices', con=engine, if_exists='replace', index=False)
         return logging.info(f"Dados inseridos com sucesso na tabela 'user', {len(data_frame_finan)} registros financeiros.")
