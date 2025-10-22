@@ -48,8 +48,8 @@ jobs:
             echo "Remove files HOMOLOGA"
             sudo rm -rf /home/ubuntu/services_etl_hom/notebook && sudo rm -rf /home/ubuntu/services_etl_hom/old_consultas
             
-            # echo "permissões server files public - homologa"
-            # sudo chown -R ubuntu: /home/ubuntu/atmp_etl_hom/ > /dev/null 2>&1
+            echo "permissões scripts - homologa"
+            sudo chmod +x /home/ubuntu/services_etl_hom/data_processed/script/*.sh > /dev/null 2>&1
 
   create-pull-request:
     name: Create Pull Request
