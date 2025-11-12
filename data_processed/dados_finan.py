@@ -4,7 +4,7 @@ import pandas as pd
 from sqlalchemy import create_engine
 from dotenv import load_dotenv
 import logging
-logging.basicConfig(filename='etl_person.log',
+logging.basicConfig(filename='etl_finan.log',
                     level=logging.INFO, 
                     format='%(asctime)s - %(levelname)s - %(message)s',
                     datefmt='%Y-%m-%d %H:%M:%S')
@@ -49,7 +49,8 @@ class DadosFinanceiro:
 
                         invoice_list.append(data)
                         # Condição de parada 2: ao chegar na ultima pagina
-                        if page_num >= data.get('last_page', page_num):
+                        #if page_num >= data.get('last_page', page_num):
+                        if page_num >= 3:
                             logging.info(f"Ano {ano} | Chegou na última página ({page_num}). Fim da paginação.")
                             break
                         page_num += 1
@@ -137,5 +138,5 @@ class DadosFinanceiro:
         data_frame_finan = self.create_df_finan()
         #engine = create_engine(os.getenv('DEV_DATABASE_URI'))
         engine = create_engine(os.getenv('HOM_DATABASE_URI'))
-        data_frame_finan.to_sql(name='invoices', con=engine, if_exists='replace', index=False)
+        data_frame_finan.to_sql(name='invoice', con=engine, if_exists='replace', index=False)
         return logging.info(f"Dados inseridos com sucesso na tabela 'user', {len(data_frame_finan)} registros financeiros.")
