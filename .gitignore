@@ -2,6 +2,7 @@
 # Edit at https://www.toptal.com/developers/gitignore?templates=python
 *.csv
 file.json
+info.txt
 
 ### Python ###
 # Byte-compiled / optimized / DLL files

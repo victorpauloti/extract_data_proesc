@@ -54,8 +54,7 @@ class DadosPerson:
 
                         invoice_list.append(data)
                         # Condição de parada 2: ao chegar na ultima pagina
-                        if page_num >= 3: # para teste de dados
-                        #if page_num >= data.get('last_page', page_num):
+                        if page_num >= data.get('last_page', page_num):
                             logging.info(f"Ano {ano} | Chegou na última página ({page_num}). Fim da paginação.")
                             break
                         page_num += 1
@@ -145,9 +144,9 @@ class DadosPerson:
     def insert_data_person(self):
         data_frame_person = self.create_df_person()
         
-        #engine = create_engine(os.getenv('DEV_DATABASE_URI'))
+        engine = create_engine(os.getenv('DEV_DATABASE_URI'))
         
-        engine = create_engine(os.getenv('HOM_DATABASE_URI'))
+        #engine = create_engine(os.getenv('HOM_DATABASE_URI'))
 
         data_frame_person.to_sql(name='user', con=engine, if_exists='replace', index=False)
         

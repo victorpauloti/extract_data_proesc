@@ -49,8 +49,7 @@ class DadosFinanceiro:
 
                         invoice_list.append(data)
                         # Condição de parada 2: ao chegar na ultima pagina
-                        #if page_num >= data.get('last_page', page_num):
-                        if page_num >= 3:
+                        if page_num >= data.get('last_page', page_num):
                             logging.info(f"Ano {ano} | Chegou na última página ({page_num}). Fim da paginação.")
                             break
                         page_num += 1
@@ -124,8 +123,10 @@ class DadosFinanceiro:
         data['order'] = order
         data['status_api'] = status_api
         data['description'] = description
-        data['due_date'] = due_date
-        data['payment_date'] = payment_date
+        data['due_date'] = pd.to_datetime(due_date)
+        data['due_date'] = data['due_date'].dt.strftime('%d-%m-%Y')
+        data['payment_date'] = pd.to_datetime(payment_date)
+        data['payment_date'] = data['payment_date'].dt.strftime('%d-%m-%Y')
         data['barcode_line'] = barcode_line
         data['pix_text'] = pix_text
         data['value'] = value
@@ -136,7 +137,7 @@ class DadosFinanceiro:
 
     def insert_data_finan(self):
         data_frame_finan = self.create_df_finan()
-        #engine = create_engine(os.getenv('DEV_DATABASE_URI'))
-        engine = create_engine(os.getenv('HOM_DATABASE_URI'))
+        engine = create_engine(os.getenv('DEV_DATABASE_URI'))
+        #engine = create_engine(os.getenv('HOM_DATABASE_URI'))
         data_frame_finan.to_sql(name='invoice', con=engine, if_exists='replace', index=False)
-        return logging.info(f"Dados inseridos com sucesso na tabela 'user', {len(data_frame_finan)} registros financeiros.")
+        return logging.info(f"Dados inseridos com sucesso na tabela 'invoice', {len(data_frame_finan)} registros financeiros.")
