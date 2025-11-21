@@ -33,6 +33,7 @@ jobs:
             git config --global url."https://${{ secrets.PERSONAL_GITHUB_TOKEN }}@github.com".insteadOf "https://github.com"
             
             #echo "Clone o repositório usando o token, especificando a branch develop"
+            echo "Clone o repositório - HOMOLOGA"
             sudo git clone -b develop https://${{ secrets.PERSONAL_GITHUB_TOKEN }}@github.com/victorpauloti/extract_data_proesc.git /home/ubuntu/tmp_etl_hom
 
             # Use rsync para copiar os arquivos, excluindo .git e .github
