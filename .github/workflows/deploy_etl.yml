@@ -103,24 +103,22 @@ jobs:
             # Configura o Git para usar o token de acesso ao invés do username e password
             git config --global url."https://${{ secrets.PERSONAL_GITHUB_TOKEN }}@github.com".insteadOf "https://github.com"
             
-            # Clone o repositório usando o token
-            sudo git clone -b develop https://${{ secrets.PERSONAL_GITHUB_TOKEN }}@github.com/victorpauloti/services_web_iepsis.git /home/ubuntu/tmp_deploy_services_prod
+            #echo "Clone o repositório usando o token, especificando a branch develop"
+            echo "Clone o repositório - PROD"
+            sudo git clone -b develop https://${{ secrets.PERSONAL_GITHUB_TOKEN }}@github.com/victorpauloti/extract_data_proesc.git /home/ubuntu/tmp_etl_prod
 
             # Use rsync para copiar os arquivos, excluindo .git e .github
-            echo "SYNC FILES PRODUÇÃO"
-            sudo rsync -av --exclude='.git' --exclude='.github' --exclude='create_pass.py' --exclude='migrate.py' /home/ubuntu/tmp_deploy_services_prod/ /home/ubuntu/app_flask/services_web_iepsis_prod/ > /dev/null 2>&1
-
-            # Remover o diretório temporário
-            echo "Remove files temp - PRODUÇÃO"
-            #sudo rm -rf /home/ubuntu/tmp_deploy_services_prod
+            # removi o --delete q tem a funcao de deletar o q nao esta na origem
+            echo "SYNC FILES PROD"
+            sudo rsync -avz --exclude='.git' --exclude='.gitignore' --exclude='.github/' /home/ubuntu/tmp_etl_prod/ /home/ubuntu/services_etl_prod/
             
-            echo "permissões server files public - PRODUÇÃO"
-            #sudo chown -R ubuntu: /home/ubuntu/app_flask/services_web_iepsis_prod/ > /dev/null 2>&1
+            # Remover o diretório temporário
+            echo "Remove files TEMP - PROD"
+            sudo rm -rf /home/ubuntu/tmp_etl_prod
 
-            # atualiza templates do flask
-            echo "Atualiza templates - PROD"
-            cd /home/ubuntu/app_flask/services_web_iepsis_prod/templates/* /var/www/html/servicos.vpaulo.com/public/templates/
-
-            # RESTART GUNICORN SERVICE
-            echo "Restart GUNICORN SERVICE - PROD"
-            sudo systemctl restart gunicorn_servico.service
+            # Remover o diretório
+            echo "Remove files PROD"
+            sudo rm -rf /home/ubuntu/services_etl_hom/notebook && sudo rm -rf /home/ubuntu/services_etl_prod/old_consultas
+            
+            echo "permissões scripts - homologa"
+            sudo chmod +x /home/ubuntu/services_etl_prod/data_processed/script/*.sh > /dev/null 2>&1
