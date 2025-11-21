@@ -4,7 +4,7 @@ import pandas as pd
 from sqlalchemy import create_engine
 from dotenv import load_dotenv
 import logging
-logging.basicConfig(filename='etl_person.log',
+logging.basicConfig(filename='etl_finan.log',
                     level=logging.INFO, 
                     format='%(asctime)s - %(levelname)s - %(message)s',
                     datefmt='%Y-%m-%d %H:%M:%S')
@@ -123,8 +123,10 @@ class DadosFinanceiro:
         data['order'] = order
         data['status_api'] = status_api
         data['description'] = description
-        data['due_date'] = due_date
-        data['payment_date'] = payment_date
+        data['due_date'] = pd.to_datetime(due_date)
+        data['due_date'] = data['due_date'].dt.strftime('%d-%m-%Y')
+        data['payment_date'] = pd.to_datetime(payment_date)
+        data['payment_date'] = data['payment_date'].dt.strftime('%d-%m-%Y')
         data['barcode_line'] = barcode_line
         data['pix_text'] = pix_text
         data['value'] = value
@@ -135,7 +137,7 @@ class DadosFinanceiro:
 
     def insert_data_finan(self):
         data_frame_finan = self.create_df_finan()
-        #engine = create_engine(os.getenv('DEV_DATABASE_URI'))
-        engine = create_engine(os.getenv('HOM_DATABASE_URI'))
-        data_frame_finan.to_sql(name='invoices', con=engine, if_exists='replace', index=False)
-        return logging.info(f"Dados inseridos com sucesso na tabela 'user', {len(data_frame_finan)} registros financeiros.")
+        engine = create_engine(os.getenv('DEV_DATABASE_URI'))
+        #engine = create_engine(os.getenv('HOM_DATABASE_URI'))
+        data_frame_finan.to_sql(name='invoice', con=engine, if_exists='replace', index=False)
+        return logging.info(f"Dados inseridos com sucesso na tabela 'invoice', {len(data_frame_finan)} registros financeiros.")

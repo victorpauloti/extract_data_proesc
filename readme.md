@@ -1,6 +1,6 @@
 #### Primeira ação: definir a estrutura da tabela que receberá os dados
 Paginas da API :  https://proesc.readme.io/reference/parcelas
-
+workdir : /home/ubuntu/services_etl_hom/data_processed
 para ler
 
 https://hub.asimov.academy/tutorial/mapeando-uma-base-de-dados-com-sqlalchemy/
