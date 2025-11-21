@@ -137,7 +137,7 @@ class DadosFinanceiro:
 
     def insert_data_finan(self):
         data_frame_finan = self.create_df_finan()
-        engine = create_engine(os.getenv('DEV_DATABASE_URI'))
-        #engine = create_engine(os.getenv('HOM_DATABASE_URI'))
+        #engine = create_engine(os.getenv('DEV_DATABASE_URI'))
+        engine = create_engine(os.getenv('HOM_DATABASE_URI'))
         data_frame_finan.to_sql(name='invoice', con=engine, if_exists='replace', index=False)
         return logging.info(f"Dados inseridos com sucesso na tabela 'invoice', {len(data_frame_finan)} registros financeiros.")

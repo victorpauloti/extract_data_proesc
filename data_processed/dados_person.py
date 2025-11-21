@@ -143,12 +143,8 @@ class DadosPerson:
 
     def insert_data_person(self):
         data_frame_person = self.create_df_person()
-        
-        engine = create_engine(os.getenv('DEV_DATABASE_URI'))
-        
-        #engine = create_engine(os.getenv('HOM_DATABASE_URI'))
-
+        #engine = create_engine(os.getenv('DEV_DATABASE_URI'))
+        engine = create_engine(os.getenv('HOM_DATABASE_URI'))
         data_frame_person.to_sql(name='user', con=engine, if_exists='replace', index=False)
-        
         return logging.info(f"Dados inseridos com sucesso na tabela 'user', {len(data_frame_person)} registros pessoais.")
 
