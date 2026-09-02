@@ -7,7 +7,7 @@ from flask_bcrypt import generate_password_hash
 from sqlalchemy import create_engine
 from dotenv import load_dotenv
 import logging
-logging.basicConfig(filename='etl_person.log',
+logging.basicConfig(filename='/home/ubuntu/services_etl_hom/etl_person.log',
                     level=logging.INFO, 
                     format='%(asctime)s - %(levelname)s - %(message)s',
                     datefmt='%Y-%m-%d %H:%M:%S')

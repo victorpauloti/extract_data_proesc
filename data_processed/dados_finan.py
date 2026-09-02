@@ -4,7 +4,7 @@ import pandas as pd
 from sqlalchemy import create_engine
 from dotenv import load_dotenv
 import logging
-logging.basicConfig(filename='etl_finan.log',
+logging.basicConfig(filename='/home/ubuntu/services_etl_hom/etl_finan.log',
                     level=logging.INFO, 
                     format='%(asctime)s - %(levelname)s - %(message)s',
                     datefmt='%Y-%m-%d %H:%M:%S')
@@ -63,7 +63,7 @@ class DadosFinanceiro:
         return invoice_list
     
     def data_financial(self, invoice_list):
-        turma_id = [323297,323301,323298,323293,340179,383505,368209,370031]
+        turma_id = [323293,323297,323298,323301,340179,368209,370031,383505,394180,399811,438748,439893,449654,449655]
         invoice_id, person_id, matricula_turma, matricula_ativa, description, order, status_api, description = [], [], [], [], [], [], [], []
         due_date, payment_date, barcode_line, pix_text, value, value_pay, external_gateway_url = [], [], [], [], [], [], []
 
